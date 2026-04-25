@@ -1,0 +1,83 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+    tenant_id: research
+
+scrape_configs:
+
+  # ──────────────────────────────────────────────────────────
+  # Docker container log discovery
+  # Reads labels set on containers in docker-compose
+  # ──────────────────────────────────────────────────────────
+  - job_name: docker-containers
+    docker_sd_configs:
+      - host: unix:///var/run/docker.sock
+        refresh_interval: 5s
+        filters:
+          - name: label
+            values: ["logging=promtail"]
+
+    relabel_configs:
+      # Use container name as instance label
+      - source_labels: ["__meta_docker_container_name"]
+        regex: "/(.*)"
+        target_label: "container"
+
+      # Use logging_jobname label as job
+      - source_labels: ["__meta_docker_container_label_logging_jobname"]
+        target_label: "job"
+
+      # Add language label
+      - source_labels: ["__meta_docker_container_label_language"]
+        target_label: "language"
+
+      # Add image label
+      - source_labels: ["__meta_docker_container_image"]
+        target_label: "image"
+
+    pipeline_stages:
+      # Parse JSON logs
+      - json:
+          expressions:
+            level: level
+            msg: msg
+            timestamp: time
+            service: service
+            request_id: request_id
+            method: method
+            path: path
+            status: status
+            latency: latency
+
+      # Add level label for filtering in Grafana
+      - labels:
+          level:
+          service:
+
+      # Parse timestamps
+      - timestamp:
+          source: timestamp
+          format: RFC3339Nano
+          fallback_formats:
+            - "2006-01-02T15:04:05Z07:00"
+            - "2006-01-02 15:04:05"
+
+      # Drop noisy health-check logs
+      - drop:
+          expression: '.*GET /health.*'
+
+  # ──────────────────────────────────────────────────────────
+  # Prometheus logs (plain text format)
+  # ──────────────────────────────────────────────────────────
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9080"]
+        labels:
+          job: "prometheus"
+          __path__: "/var/log/prometheus/*.log"

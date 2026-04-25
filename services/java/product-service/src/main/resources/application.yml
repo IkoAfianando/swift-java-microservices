@@ -1,0 +1,41 @@
+server:
+  port: ${SERVER_PORT:9082}
+spring:
+  application:
+    name: java-product-service
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/product_service_db}
+    username: ${SPRING_DATASOURCE_USERNAME:research}
+    password: ${SPRING_DATASOURCE_PASSWORD:research_secret_2025}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST:localhost}
+      port: ${SPRING_REDIS_PORT:6379}
+  cache:
+    type: redis
+    redis:
+      time-to-live: 30000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,metrics
+  metrics:
+    tags:
+      service: java-product-service
+      language: java
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      percentiles:
+        http.server.requests: 0.5,0.95,0.99
+logging:
+  pattern:
+    console: '{"time":"%d{yyyy-MM-dd HH:mm:ss.SSS}","level":"%p","service":"java-product-service","language":"java","msg":"%m"}%n'

@@ -1,0 +1,243 @@
+{
+    "metrics": {
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 418428,
+            "thresholds": {
+                "rate<0.20": false
+            },
+            "value": 0
+        },
+        "java_request_duration": {
+            "p(95)": 4.677699999999995,
+            "avg": 1.8155873794296549,
+            "min": 0.221,
+            "med": 1.07,
+            "max": 161.853,
+            "p(90)": 3.38,
+            "thresholds": {
+                "p(95)<3000": false
+            }
+        },
+        "http_req_blocked": {
+            "p(90)": 0.004,
+            "p(95)": 0.005,
+            "avg": 0.0038160519850253274,
+            "min": 0,
+            "med": 0.002,
+            "max": 8.66
+        },
+        "http_req_waiting": {
+            "p(95)": 6.844,
+            "avg": 2.26212485302125,
+            "min": 0.185,
+            "med": 1.302,
+            "max": 161.695,
+            "p(90)": 4.769300000000009
+        },
+        "http_req_receiving": {
+            "p(95)": 0.134,
+            "avg": 0.04037737197320644,
+            "min": 0.003,
+            "med": 0.015,
+            "max": 42.852,
+            "p(90)": 0.062
+        },
+        "vus_max": {
+            "value": 200,
+            "min": 200,
+            "max": 200
+        },
+        "http_req_duration": {
+            "avg": 2.309240270727497,
+            "min": 0.199,
+            "med": 1.339,
+            "max": 161.853,
+            "p(90)": 4.844,
+            "p(95)": 6.949
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "swift_error_rate": {
+            "fails": 104607,
+            "passes": 0,
+            "value": 0
+        },
+        "checks": {
+            "fails": 0,
+            "passes": 836856,
+            "value": 1
+        },
+        "group_duration": {
+            "max": 167.85225,
+            "p(90)": 9.900962700000003,
+            "p(95)": 13.042103949999996,
+            "avg": 4.724064447627895,
+            "min": 0.606334,
+            "med": 2.8633125
+        },
+        "http_req_connecting": {
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0.001208050130488396,
+            "min": 0,
+            "med": 0,
+            "max": 8.363
+        },
+        "swift_requests_total": {
+            "count": 104607,
+            "rate": 316.79656495819273
+        },
+        "http_req_duration{expected_response:true}": {
+            "p(95)": 6.949,
+            "avg": 2.309240270727497,
+            "min": 0.199,
+            "med": 1.339,
+            "max": 161.853,
+            "p(90)": 4.844
+        },
+        "http_reqs": {
+            "count": 418428,
+            "rate": 1267.186259832771
+        },
+        "http_req_sending": {
+            "p(90)": 0.011,
+            "p(95)": 0.015,
+            "avg": 0.006738045733069215,
+            "min": 0.001,
+            "med": 0.005,
+            "max": 9.017
+        },
+        "java_error_rate": {
+            "passes": 0,
+            "fails": 104607,
+            "value": 0
+        },
+        "data_sent": {
+            "count": 33160419,
+            "rate": 100424.51109174709
+        },
+        "data_received": {
+            "count": 319505916,
+            "rate": 967606.1513342402
+        },
+        "swift_request_duration": {
+            "med": 1.832,
+            "max": 77.49,
+            "p(90)": 5.749,
+            "p(95)": 7.41,
+            "avg": 2.8095498389209146,
+            "min": 0.44,
+            "thresholds": {
+                "p(95)<3000": false
+            }
+        },
+        "iteration_duration": {
+            "max": 370.48225,
+            "p(90)": 219.9085338,
+            "p(95)": 224.4242544,
+            "avg": 209.68967941939817,
+            "min": 201.586,
+            "med": 206.417292
+        },
+        "vus": {
+            "value": 1,
+            "min": 1,
+            "max": 200
+        },
+        "iterations": {
+            "count": 104607,
+            "rate": 316.79656495819273
+        },
+        "java_requests_total": {
+            "count": 104607,
+            "rate": 316.79656495819273
+        }
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {
+            "Spike – product listing (high read)": {
+                "path": "::Spike – product listing (high read)",
+                "id": "4d890ee8cbff5d61fde32bc73ce743e1",
+                "groups": {},
+                "checks": {
+                        "Swift spike /products: status 2xx": {
+                            "name": "Swift spike /products: status 2xx",
+                            "path": "::Spike – product listing (high read)::Swift spike /products: status 2xx",
+                            "id": "152579b89c28b4895b4678eb2f9e4c82",
+                            "passes": 104607,
+                            "fails": 0
+                        },
+                        "Swift spike /products: response time < 2s": {
+                            "name": "Swift spike /products: response time < 2s",
+                            "path": "::Spike – product listing (high read)::Swift spike /products: response time < 2s",
+                            "id": "1d777f25090546d67a60cffb9710c4ab",
+                            "passes": 104607,
+                            "fails": 0
+                        },
+                        "Swift spike /products: has body": {
+                            "name": "Swift spike /products: has body",
+                            "path": "::Spike – product listing (high read)::Swift spike /products: has body",
+                            "id": "bbef1822c4ff60e2c4f222765aa10b12",
+                            "passes": 104607,
+                            "fails": 0
+                        },
+                        "Java spike /products: status 2xx": {
+                            "fails": 0,
+                            "name": "Java spike /products: status 2xx",
+                            "path": "::Spike – product listing (high read)::Java spike /products: status 2xx",
+                            "id": "afa5384025f7fe48b830ebb3392d1ad1",
+                            "passes": 104607
+                        },
+                        "Java spike /products: response time < 2s": {
+                            "name": "Java spike /products: response time < 2s",
+                            "path": "::Spike – product listing (high read)::Java spike /products: response time < 2s",
+                            "id": "c5bd96e2d48ba9729e223d5fa0d4d631",
+                            "passes": 104607,
+                            "fails": 0
+                        },
+                        "Java spike /products: has body": {
+                            "fails": 0,
+                            "name": "Java spike /products: has body",
+                            "path": "::Spike – product listing (high read)::Java spike /products: has body",
+                            "id": "5d6724816eddf55a4e778ab5f70d857f",
+                            "passes": 104607
+                        }
+                    },
+                "name": "Spike – product listing (high read)"
+            },
+            "Spike – health check (should always pass)": {
+                "name": "Spike – health check (should always pass)",
+                "path": "::Spike – health check (should always pass)",
+                "id": "bd1a2b351322a30dff0fd2feaf784f92",
+                "groups": {},
+                "checks": {
+                        "Swift health UP": {
+                            "name": "Swift health UP",
+                            "path": "::Spike – health check (should always pass)::Swift health UP",
+                            "id": "8358f99359aa222720f345659c2c7d3f",
+                            "passes": 104607,
+                            "fails": 0
+                        },
+                        "Java health UP": {
+                            "id": "986ff56f515d723eebd495466febfa7f",
+                            "passes": 104607,
+                            "fails": 0,
+                            "name": "Java health UP",
+                            "path": "::Spike – health check (should always pass)::Java health UP"
+                        }
+                    }
+            }
+        },
+        "checks": {}
+    }
+}

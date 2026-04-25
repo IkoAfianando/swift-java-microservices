@@ -1,0 +1,33 @@
+server:
+  port: ${SERVER_PORT:9083}
+spring:
+  application:
+    name: java-order-service
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/order_service_db}
+    username: ${SPRING_DATASOURCE_USERNAME:research}
+    password: ${SPRING_DATASOURCE_PASSWORD:research_secret_2025}
+    hikari:
+      maximum-pool-size: 20
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,metrics
+  metrics:
+    tags:
+      service: java-order-service
+      language: java
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      percentiles:
+        http.server.requests: 0.5,0.95,0.99
+
+services:
+  product-url: ${PRODUCT_SERVICE_URL:http://localhost:9082}
+  user-url: ${USER_SERVICE_URL:http://localhost:9081}

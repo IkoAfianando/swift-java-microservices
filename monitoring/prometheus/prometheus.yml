@@ -1,0 +1,117 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    project: "swift-microservices-research"
+    researcher: "iko-afianando"
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ["alertmanager:9093"]
+
+# Load alert rules
+rule_files:
+  - "/etc/prometheus/rules/*.yml"
+
+scrape_configs:
+
+  # ──────────────────────────────────────────────────────────
+  # Prometheus self-monitoring
+  # ──────────────────────────────────────────────────────────
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+        labels:
+          service: "prometheus"
+
+  # ──────────────────────────────────────────────────────────
+  # Host system metrics (Node Exporter)
+  # ──────────────────────────────────────────────────────────
+  - job_name: "node-exporter"
+    static_configs:
+      - targets: ["node-exporter:9100"]
+        labels:
+          service: "node-exporter"
+
+  # ──────────────────────────────────────────────────────────
+  # Docker container metrics (cAdvisor)
+  # ──────────────────────────────────────────────────────────
+  - job_name: "cadvisor"
+    static_configs:
+      - targets: ["cadvisor:8080"]
+        labels:
+          service: "cadvisor"
+    metric_relabel_configs:
+      - source_labels: [container_label_language]
+        target_label: language
+      - source_labels: [container_label_logging_jobname]
+        target_label: service_name
+
+  # ──────────────────────────────────────────────────────────
+  # Swift Vapor Services – /metrics endpoint
+  # ──────────────────────────────────────────────────────────
+  - job_name: "swift-user-service"
+    static_configs:
+      - targets: ["swift-user-service:8081"]
+        labels:
+          service: "user-service"
+          language: "swift"
+          framework: "vapor"
+    metrics_path: "/metrics"
+    scrape_interval: 10s
+
+  - job_name: "swift-product-service"
+    static_configs:
+      - targets: ["swift-product-service:8082"]
+        labels:
+          service: "product-service"
+          language: "swift"
+          framework: "vapor"
+    metrics_path: "/metrics"
+    scrape_interval: 10s
+
+  - job_name: "swift-order-service"
+    static_configs:
+      - targets: ["swift-order-service:8083"]
+        labels:
+          service: "order-service"
+          language: "swift"
+          framework: "vapor"
+    metrics_path: "/metrics"
+    scrape_interval: 10s
+
+  # ──────────────────────────────────────────────────────────
+  # Java Spring Boot Services – Actuator /actuator/prometheus
+  # ──────────────────────────────────────────────────────────
+  - job_name: "java-user-service"
+    static_configs:
+      - targets: ["java-user-service:9081"]
+        labels:
+          service: "user-service"
+          language: "java"
+          framework: "spring-boot"
+    metrics_path: "/actuator/prometheus"
+    scrape_interval: 10s
+
+  - job_name: "java-product-service"
+    static_configs:
+      - targets: ["java-product-service:9082"]
+        labels:
+          service: "product-service"
+          language: "java"
+          framework: "spring-boot"
+    metrics_path: "/actuator/prometheus"
+    scrape_interval: 10s
+
+  - job_name: "java-order-service"
+    static_configs:
+      - targets: ["java-order-service:9083"]
+        labels:
+          service: "order-service"
+          language: "java"
+          framework: "spring-boot"
+    metrics_path: "/actuator/prometheus"
+    scrape_interval: 10s
+

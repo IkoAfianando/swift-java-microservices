@@ -1,0 +1,235 @@
+{
+    "metrics": {
+        "http_req_waiting": {
+            "p(90)": 11557.619000000004,
+            "p(95)": 21193.95624999999,
+            "avg": 2860.015990733376,
+            "min": 0,
+            "med": 57.671499999999995,
+            "max": 51274.74
+        },
+        "http_reqs": {
+            "count": 100576,
+            "rate": 128.8758532560202
+        },
+        "http_req_connecting": {
+            "p(90)": 0,
+            "p(95)": 0.144,
+            "avg": 0.014710935014317495,
+            "min": 0,
+            "med": 0,
+            "max": 6.681
+        },
+        "http_req_receiving": {
+            "p(90)": 75.02350000000003,
+            "p(95)": 155.6929999999999,
+            "avg": 23.04508407572407,
+            "min": 0,
+            "med": 0.073,
+            "max": 2539.37
+        },
+        "checks": {
+            "passes": 88772,
+            "fails": 12430,
+            "value": 0.8771763403885299
+        },
+        "data_received": {
+            "count": 36689690512,
+            "rate": 47013354.7807957
+        },
+        "java_request_duration": {
+            "avg": 5513.60352093422,
+            "min": 0,
+            "med": 232.322,
+            "max": 51567.796,
+            "p(90)": 21515.937,
+            "p(95)": 28330.168,
+            "thresholds": {
+                "p(95)<2000": true
+            }
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_duration": {
+            "min": 0,
+            "med": 63.6245,
+            "max": 51567.796,
+            "p(90)": 11738.943000000003,
+            "p(95)": 21494.734999999997,
+            "avg": 2905.619694857623
+        },
+        "java_requests_total": {
+            "count": 50181,
+            "rate": 64.30081920378967
+        },
+        "swift_request_duration": {
+            "max": 6267.371,
+            "p(90)": 358.0872000000001,
+            "p(95)": 1017.9722999999943,
+            "avg": 308.71054957832956,
+            "min": 0.613,
+            "med": 36.207,
+            "thresholds": {
+                "p(95)<2000": false
+            }
+        },
+        "swift_requests_total": {
+            "count": 50395,
+            "rate": 64.57503405223054
+        },
+        "vus": {
+            "value": 4,
+            "min": 1,
+            "max": 1000
+        },
+        "data_sent": {
+            "count": 13718668,
+            "rate": 17578.796572105275
+        },
+        "http_req_failed": {
+            "passes": 4130,
+            "fails": 96446,
+            "thresholds": {
+                "rate<0.10": false
+            },
+            "value": 0.04106347438752784
+        },
+        "iteration_duration": {
+            "p(90)": 50303.62979200001,
+            "p(95)": 57152.072676749995,
+            "avg": 17396.470682112005,
+            "min": 324.432417,
+            "med": 6381.0985415,
+            "max": 91241.183291
+        },
+        "http_req_duration{expected_response:true}": {
+            "p(95)": 21148.414999999997,
+            "avg": 2884.3287846359644,
+            "min": 0.365,
+            "med": 72.34,
+            "max": 51567.796,
+            "p(90)": 11705.798
+        },
+        "java_error_rate": {
+            "passes": 151,
+            "fails": 50030,
+            "value": 0.0030091070325421972
+        },
+        "swift_error_rate": {
+            "passes": 0,
+            "fails": 50395,
+            "value": 0
+        },
+        "group_duration": {
+            "p(95)": 28539.039375,
+            "avg": 5823.658277356249,
+            "min": 1.037042,
+            "med": 492.653458,
+            "max": 51616.598667,
+            "p(90)": 21803.445583
+        },
+        "iterations": {
+            "count": 16656,
+            "rate": 21.342628577715086
+        },
+        "http_req_blocked": {
+            "p(95)": 0.21,
+            "avg": 0.038042236716513037,
+            "min": 0,
+            "med": 0.005,
+            "max": 14.723,
+            "p(90)": 0.09
+        },
+        "http_req_sending": {
+            "p(90)": 0.08850000000000223,
+            "p(95)": 0.173,
+            "avg": 22.558620048517916,
+            "min": 0,
+            "med": 0.022,
+            "max": 46438.662
+        },
+        "vus_max": {
+            "value": 1000,
+            "min": 1000,
+            "max": 1000
+        }
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {
+            "Stress – GET /users (read-heavy)": {
+                "groups": {},
+                "checks": {
+                        "Swift stress GET /users: status 2xx": {
+                            "passes": 16867,
+                            "fails": 0,
+                            "name": "Swift stress GET /users: status 2xx",
+                            "path": "::Stress – GET /users (read-heavy)::Swift stress GET /users: status 2xx",
+                            "id": "378d2d67c76ba5a63071882aebb8e01f"
+                        },
+                        "Swift stress GET /users: response time < 2s": {
+                            "passes": 16853,
+                            "fails": 14,
+                            "name": "Swift stress GET /users: response time < 2s",
+                            "path": "::Stress – GET /users (read-heavy)::Swift stress GET /users: response time < 2s",
+                            "id": "1ae7de200463a40236b5a37947d98929"
+                        },
+                        "Swift stress GET /users: has body": {
+                            "id": "b8a792f6bf84a49c5195953c1fa0d9a7",
+                            "passes": 16867,
+                            "fails": 0,
+                            "name": "Swift stress GET /users: has body",
+                            "path": "::Stress – GET /users (read-heavy)::Swift stress GET /users: has body"
+                        },
+                        "Java stress GET /users: status 2xx": {
+                            "fails": 2200,
+                            "name": "Java stress GET /users: status 2xx",
+                            "path": "::Stress – GET /users (read-heavy)::Java stress GET /users: status 2xx",
+                            "id": "2ee7802b7188843fe7b02d0bcd430ca7",
+                            "passes": 14667
+                        },
+                        "Java stress GET /users: response time < 2s": {
+                            "name": "Java stress GET /users: response time < 2s",
+                            "path": "::Stress – GET /users (read-heavy)::Java stress GET /users: response time < 2s",
+                            "id": "888c7e6cc58f7e66ade61b806dad4a68",
+                            "passes": 8784,
+                            "fails": 8083
+                        },
+                        "Java stress GET /users: has body": {
+                            "name": "Java stress GET /users: has body",
+                            "path": "::Stress – GET /users (read-heavy)::Java stress GET /users: has body",
+                            "id": "1b3f55547f96752634681b0538d47c2e",
+                            "passes": 14734,
+                            "fails": 2133
+                        }
+                    },
+                "name": "Stress – GET /users (read-heavy)",
+                "path": "::Stress – GET /users (read-heavy)",
+                "id": "d68eb88c5c86607168f74d7a8259cec9"
+            },
+            "Stress – POST /users (write-heavy)": {
+                "path": "::Stress – POST /users (write-heavy)",
+                "id": "33c838b63e10ac53345175db745ae86b",
+                "groups": {},
+                "checks": {},
+                "name": "Stress – POST /users (write-heavy)"
+            },
+            "Stress – GET /products (DB read)": {
+                "path": "::Stress – GET /products (DB read)",
+                "id": "db92ac7ede4f9347aa5e9f355cf0d726",
+                "groups": {},
+                "checks": {},
+                "name": "Stress – GET /products (DB read)"
+            }
+        },
+        "checks": {}
+    }
+}

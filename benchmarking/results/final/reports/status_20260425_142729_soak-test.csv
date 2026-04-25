@@ -1,0 +1,14 @@
+language,service,status,outcome,count
+swift,user-service,200,,48825
+swift,user-service,404,,4
+swift,product-service,200,,161389
+swift,product-service,404,,4
+swift,order-service,201,,8171
+swift,user-service,201,,30971
+swift,product-service,201,,5
+java,product-service,201,SUCCESS,5
+java,user-service,201,SUCCESS,11208
+java,user-service,200,SUCCESS,28515
+java,order-service,201,SUCCESS,8171
+java,product-service,200,SUCCESS,161385
+java,user-service,500,SERVER_ERROR,2

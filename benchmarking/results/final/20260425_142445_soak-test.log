@@ -1,0 +1,32 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: /Users/ikoafian/LEARN/RISET/swift-microservices/benchmarking/k6/scenarios/soak-test.js
+        output: json (/Users/ikoafian/LEARN/RISET/swift-microservices/benchmarking/results/final/20260425_142445_soak-test.json)
+
+     scenarios: (100.00%) 1 scenario, 30 max VUs, 2h10m30s max duration (incl. graceful stop):
+              * default: Up to 30 looping VUs for 2h10m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+running (0h00m01.0s), 01/30 VUs, 0 complete and 0 interrupted iterations
+default   [   0% ] 01/30 VUs  0h00m01.0s/2h10m00.0s
+
+running (0h00m02.0s), 01/30 VUs, 0 complete and 0 interrupted iterations
+default   [   0% ] 01/30 VUs  0h00m02.0s/2h10m00.0s
+
+running (0h00m03.0s), 01/30 VUs, 1 complete and 0 interrupted iterations
+default   [   0% ] 01/30 VUs  0h00m03.0s/2h10m00.0s
+
+running (0h00m04.0s), 01/30 VUs, 1 complete and 0 interrupted iterations
+default   [   0% ] 01/30 VUs  0h00m04.0s/2h10m00.0s
+
+running (0h00m05.0s), 01/30 VUs, 2 complete and 0 interrupted iterations
+default   [   0% ] 01/30 VUs  0h00m05.0s/2h10m00.0s
+
+running (0h00m06.0s), 01/30 VUs, 2 complete and 0 interrupted iterations
+default   [   0% ] 01/30 VUs  0h00m06.0s/2h10m00.0s

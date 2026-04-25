@@ -1,0 +1,242 @@
+# ============================================================
+# Main services: infrastructure + Swift + Java microservices
+# ============================================================
+
+networks:
+  microservices-net:
+    external: true   # pre-created by setup.sh — shared with monitoring stack
+  monitoring-net:
+    external: true   # pre-created by setup.sh — shared with monitoring stack
+
+volumes:
+  postgres-data:
+  redis-data:
+
+services:
+
+  # ──────────────────────────────────────────────────────────
+  # Infrastructure
+  # ──────────────────────────────────────────────────────────
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: research-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-research}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-research_secret_2025}
+      POSTGRES_DB: ${POSTGRES_DB:-microservices_db}
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"  # host:5433 → container:5432 (avoid local PG conflict)
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    networks:
+      - microservices-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-research}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      logging: "promtail"
+      logging_jobname: "postgres"
+
+  redis:
+    image: redis:7-alpine
+    container_name: research-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    ports:
+      - "${REDIS_PORT:-6380}:6379"  # host:6380 → container:6379 (avoid local Redis conflict)
+    volumes:
+      - redis-data:/data
+    networks:
+      - microservices-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      logging: "promtail"
+      logging_jobname: "redis"
+
+  # ──────────────────────────────────────────────────────────
+  # Swift Vapor Services
+  # ──────────────────────────────────────────────────────────
+
+  swift-user-service:
+    build:
+      context: ../services/swift/user-service
+      dockerfile: Dockerfile
+    container_name: swift-user-service
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-research}:${POSTGRES_PASSWORD:-research_secret_2025}@postgres:5432/swift_user_db
+      REDIS_URL: redis://redis:6379
+      APP_ENV: ${SWIFT_ENV:-development}
+      PORT: "8081"
+      SERVICE_NAME: swift-user-service
+    ports:
+      - "${SWIFT_USER_PORT:-8081}:8081"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - microservices-net
+      - monitoring-net
+    labels:
+      logging: "promtail"
+      logging_jobname: "swift-user-service"
+      language: "swift"
+
+  swift-product-service:
+    build:
+      context: ../services/swift/product-service
+      dockerfile: Dockerfile
+    container_name: swift-product-service
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-research}:${POSTGRES_PASSWORD:-research_secret_2025}@postgres:5432/swift_product_db
+      REDIS_URL: redis://redis:6379
+      APP_ENV: ${SWIFT_ENV:-development}
+      PORT: "8082"
+      SERVICE_NAME: swift-product-service
+    ports:
+      - "${SWIFT_PRODUCT_PORT:-8082}:8082"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - microservices-net
+      - monitoring-net
+    labels:
+      logging: "promtail"
+      logging_jobname: "swift-product-service"
+      language: "swift"
+
+  swift-order-service:
+    build:
+      context: ../services/swift/order-service
+      dockerfile: Dockerfile
+    container_name: swift-order-service
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-research}:${POSTGRES_PASSWORD:-research_secret_2025}@postgres:5432/swift_order_db
+      REDIS_URL: redis://redis:6379
+      APP_ENV: ${SWIFT_ENV:-development}
+      PORT: "8083"
+      USER_SERVICE_URL: http://swift-user-service:8081
+      PRODUCT_SERVICE_URL: http://swift-product-service:8082
+      SERVICE_NAME: swift-order-service
+    ports:
+      - "${SWIFT_ORDER_PORT:-8083}:8083"
+    depends_on:
+      - swift-user-service
+      - swift-product-service
+    networks:
+      - microservices-net
+      - monitoring-net
+    labels:
+      logging: "promtail"
+      logging_jobname: "swift-order-service"
+      language: "swift"
+
+  # ──────────────────────────────────────────────────────────
+  # Java Spring Boot Services (Baseline)
+  # ──────────────────────────────────────────────────────────
+
+  java-user-service:
+    build:
+      context: ../services/java/user-service
+      dockerfile: Dockerfile
+    container_name: java-user-service
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-docker}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/java_user_db
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-research}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-research_secret_2025}
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+      SERVER_PORT: 9081
+      SERVICE_NAME: java-user-service
+    ports:
+      - "${JAVA_USER_PORT:-9081}:9081"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - microservices-net
+      - monitoring-net
+    labels:
+      logging: "promtail"
+      logging_jobname: "java-user-service"
+      language: "java"
+
+  java-product-service:
+    build:
+      context: ../services/java/product-service
+      dockerfile: Dockerfile
+    container_name: java-product-service
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-docker}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/java_product_db
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-research}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-research_secret_2025}
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+      SERVER_PORT: 9082
+      SERVICE_NAME: java-product-service
+    ports:
+      - "${JAVA_PRODUCT_PORT:-9082}:9082"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - microservices-net
+      - monitoring-net
+    labels:
+      logging: "promtail"
+      logging_jobname: "java-product-service"
+      language: "java"
+
+  java-order-service:
+    build:
+      context: ../services/java/order-service
+      dockerfile: Dockerfile
+    container_name: java-order-service
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-docker}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/java_order_db
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-research}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-research_secret_2025}
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+      SERVER_PORT: 9083
+      USER_SERVICE_URL: http://java-user-service:9081
+      PRODUCT_SERVICE_URL: http://java-product-service:9082
+      SERVICE_NAME: java-order-service
+    ports:
+      - "${JAVA_ORDER_PORT:-9083}:9083"
+    depends_on:
+      - java-user-service
+      - java-product-service
+    networks:
+      - microservices-net
+      - monitoring-net
+    labels:
+      logging: "promtail"
+      logging_jobname: "java-order-service"
+      language: "java"

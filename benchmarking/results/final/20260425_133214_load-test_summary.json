@@ -1,0 +1,425 @@
+{
+    "metrics": {
+        "swift_request_duration": {
+            "p(90)": 53.829800000000006,
+            "p(95)": 60.028199999999984,
+            "avg": 17.057123454901426,
+            "min": 0.562,
+            "med": 3.892,
+            "max": 232.428,
+            "thresholds": {
+                "p(99)<1000": false,
+                "p(95)<500": false
+            }
+        },
+        "iteration_duration": {
+            "med": 3653.905917,
+            "max": 5103.88975,
+            "p(90)": 4667.51675,
+            "p(95)": 4686.5767085,
+            "avg": 3647.9878871234932,
+            "min": 2618.075416
+        },
+        "http_req_receiving": {
+            "avg": 0.7749381384963585,
+            "min": 0.006,
+            "med": 0.05,
+            "max": 77.08,
+            "p(90)": 1.636,
+            "p(95)": 5.168649999999997
+        },
+        "http_reqs": {
+            "count": 65388,
+            "rate": 108.74510260373506
+        },
+        "data_sent": {
+            "count": 11196470,
+            "rate": 18620.56155486697
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "data_received": {
+            "count": 5472186284,
+            "rate": 9100652.396775123
+        },
+        "java_error_rate": {
+            "passes": 0,
+            "fails": 32684,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_req_connecting": {
+            "avg": 0.0022455802287881586,
+            "min": 0,
+            "med": 0,
+            "max": 0.899,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "vus_max": {
+            "value": 100,
+            "min": 100,
+            "max": 100
+        },
+        "group_duration": {
+            "avg": 40.22260611761071,
+            "min": 1.038375,
+            "med": 11.010958500000001,
+            "max": 478.96825,
+            "p(90)": 121.9886171,
+            "p(95)": 134.4399705
+        },
+        "http_req_sending": {
+            "avg": 0.01601780143145259,
+            "min": 0.002,
+            "med": 0.013,
+            "max": 4.419,
+            "p(90)": 0.025,
+            "p(95)": 0.032
+        },
+        "swift_requests_total": {
+            "count": 32684,
+            "rate": 54.355920558825424
+        },
+        "http_req_blocked": {
+            "p(90)": 0.007,
+            "p(95)": 0.009,
+            "avg": 0.0073596684406912775,
+            "min": 0,
+            "med": 0.003,
+            "max": 3.188
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 65388,
+            "value": 0
+        },
+        "java_requests_total": {
+            "count": 32684,
+            "rate": 54.355920558825424
+        },
+        "swift_error_rate": {
+            "passes": 0,
+            "fails": 32684,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_req_duration{expected_response:true}": {
+            "med": 4.602,
+            "max": 348.732,
+            "p(90)": 62.534,
+            "p(95)": 69.09294999999999,
+            "avg": 19.940162950388373,
+            "min": 0.302
+        },
+        "checks": {
+            "fails": 0,
+            "passes": 196104,
+            "value": 1
+        },
+        "iterations": {
+            "count": 8171,
+            "rate": 13.588980139706356
+        },
+        "http_req_duration": {
+            "avg": 19.940162950388373,
+            "min": 0.302,
+            "med": 4.602,
+            "max": 348.732,
+            "p(90)": 62.534,
+            "p(95)": 69.09294999999999,
+            "thresholds": {
+                "p(95)<2000": false
+            }
+        },
+        "vus": {
+            "value": 2,
+            "min": 1,
+            "max": 100
+        },
+        "java_request_duration": {
+            "p(95)": 74.00819999999999,
+            "avg": 22.805619263248158,
+            "min": 0.302,
+            "med": 5.830500000000001,
+            "max": 348.732,
+            "p(90)": 66.365,
+            "thresholds": {
+                "p(95)<500": false,
+                "p(99)<1000": false
+            }
+        },
+        "http_req_waiting": {
+            "min": 0.256,
+            "med": 4.077500000000001,
+            "max": 348.664,
+            "p(90)": 62.353300000000004,
+            "p(95)": 68.77959999999999,
+            "avg": 19.149207010460575
+        }
+    },
+    "setup_data": {
+        "productIds": [
+            {
+                "javaId": "9a55c50e-e397-4baa-87c3-6acfe08ce9e1",
+                "swiftId": "4145B8DF-A38F-4D7C-9EA9-501A3D5B1AE1"
+            },
+            {
+                "swiftId": "C3C5E00C-B5D1-4CF1-9C27-378C7D0506E1",
+                "javaId": "00321455-62f5-480d-bfff-50cbfebdd667"
+            },
+            {
+                "javaId": "0b4bd8a5-a23a-414b-9daf-c64c106927ba",
+                "swiftId": "8C178300-54D3-4AF3-A79D-887A8E46CD85"
+            },
+            {
+                "javaId": "778bad44-5f7d-4802-97c2-990aea899cdf",
+                "swiftId": "EB5D1483-9212-453A-B101-EC543A787F68"
+            },
+            {
+                "javaId": "c50910a5-3777-492e-a544-f405a3549fe1",
+                "swiftId": "8930C55D-8146-4D8E-863E-B60FE0EFD255"
+            }
+        ],
+        "userIds": [
+            {
+                "javaId": "98572498-5edc-48eb-b13c-8f3db8f328e4",
+                "swiftId": "A28E69F7-4686-4E7D-81B0-D95122CA6E87"
+            },
+            {
+                "javaId": "cfa03d1d-184f-4da0-8a51-edf5a39e5f5f",
+                "swiftId": "CAC59883-7DF9-4F4A-A041-28357423DEF9"
+            },
+            {
+                "javaId": "658cb566-06a3-448b-995d-f223b3b1b1e9",
+                "swiftId": "E3BC55F6-AA9A-486B-AA61-1CF21DA2BD9F"
+            },
+            {
+                "javaId": "83cfd6a1-6393-430b-88f5-1e4e6632b2f3",
+                "swiftId": "21374935-3853-418B-BC73-77E88E365C44"
+            },
+            {
+                "javaId": "499d9639-5f93-4297-a2f4-8628d9b0a4cc",
+                "swiftId": "6CB48C3F-ABDD-48F5-91A7-5B4DD4753A76"
+            }
+        ]
+    },
+    "root_group": {
+        "checks": {},
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {
+                "GET /users – list users": {
+                    "path": "::GET /users – list users",
+                    "id": "81b183b980e0542fe443944858e0ef95",
+                    "groups": {},
+                    "checks": {
+                            "Swift GET /users: status 2xx": {
+                                "fails": 0,
+                                "name": "Swift GET /users: status 2xx",
+                                "path": "::GET /users – list users::Swift GET /users: status 2xx",
+                                "id": "7f76c777e79509c588644f93e0d328be",
+                                "passes": 8171
+                            },
+                            "Swift GET /users: response time < 2s": {
+                                "name": "Swift GET /users: response time < 2s",
+                                "path": "::GET /users – list users::Swift GET /users: response time < 2s",
+                                "id": "a16693675595c89905cffac20c52db10",
+                                "passes": 8171,
+                                "fails": 0
+                            },
+                            "Swift GET /users: has body": {
+                                "name": "Swift GET /users: has body",
+                                "path": "::GET /users – list users::Swift GET /users: has body",
+                                "id": "3ac9ea9826193fd1b8a1f1df90b48c94",
+                                "passes": 8171,
+                                "fails": 0
+                            },
+                            "Java GET /users: status 2xx": {
+                                "id": "7f1bf3d602529482340f524a7be2710b",
+                                "passes": 8171,
+                                "fails": 0,
+                                "name": "Java GET /users: status 2xx",
+                                "path": "::GET /users – list users::Java GET /users: status 2xx"
+                            },
+                            "Java GET /users: response time < 2s": {
+                                "name": "Java GET /users: response time < 2s",
+                                "path": "::GET /users – list users::Java GET /users: response time < 2s",
+                                "id": "0462049c26f106c533dd01135c90eac4",
+                                "passes": 8171,
+                                "fails": 0
+                            },
+                            "Java GET /users: has body": {
+                                "name": "Java GET /users: has body",
+                                "path": "::GET /users – list users::Java GET /users: has body",
+                                "id": "e46bedd8c86f967b126fdcf1501702bc",
+                                "passes": 8171,
+                                "fails": 0
+                            }
+                        },
+                    "name": "GET /users – list users"
+                },
+                "GET /products – list products": {
+                    "groups": {},
+                    "checks": {
+                            "Swift GET /products: status 2xx": {
+                                "name": "Swift GET /products: status 2xx",
+                                "path": "::GET /products – list products::Swift GET /products: status 2xx",
+                                "id": "e1acbec96785d38b4e13dc98ceab0fe3",
+                                "passes": 8171,
+                                "fails": 0
+                            },
+                            "Swift GET /products: response time < 2s": {
+                                "name": "Swift GET /products: response time < 2s",
+                                "path": "::GET /products – list products::Swift GET /products: response time < 2s",
+                                "id": "df9cf7c4c1a316436420de52d4f712a8",
+                                "passes": 8171,
+                                "fails": 0
+                            },
+                            "Swift GET /products: has body": {
+                                "passes": 8171,
+                                "fails": 0,
+                                "name": "Swift GET /products: has body",
+                                "path": "::GET /products – list products::Swift GET /products: has body",
+                                "id": "f8e193472a0157006445262be83f1440"
+                            },
+                            "Java GET /products: status 2xx": {
+                                "name": "Java GET /products: status 2xx",
+                                "path": "::GET /products – list products::Java GET /products: status 2xx",
+                                "id": "fc53652bafa2539591a47e5daf308ae7",
+                                "passes": 8171,
+                                "fails": 0
+                            },
+                            "Java GET /products: response time < 2s": {
+                                "name": "Java GET /products: response time < 2s",
+                                "path": "::GET /products – list products::Java GET /products: response time < 2s",
+                                "id": "5defe40e6a3d6d64b5f69525e36f3e8e",
+                                "passes": 8171,
+                                "fails": 0
+                            },
+                            "Java GET /products: has body": {
+                                "id": "8eeec34e0195dae52ebb8603ac697260",
+                                "passes": 8171,
+                                "fails": 0,
+                                "name": "Java GET /products: has body",
+                                "path": "::GET /products – list products::Java GET /products: has body"
+                            }
+                        },
+                    "name": "GET /products – list products",
+                    "path": "::GET /products – list products",
+                    "id": "591368b5b1f5fa489fc21a85223b03ba"
+                },
+                "POST /users – create user": {
+                    "name": "POST /users – create user",
+                    "path": "::POST /users – create user",
+                    "id": "8b215cda7b179c89fa4240a52b4c9a4b",
+                    "groups": {},
+                    "checks": {
+                            "Swift POST /users: status 2xx": {
+                                "id": "c407fd8e8f43be5a3f31ca627e727724",
+                                "passes": 8171,
+                                "fails": 0,
+                                "name": "Swift POST /users: status 2xx",
+                                "path": "::POST /users – create user::Swift POST /users: status 2xx"
+                            },
+                            "Swift POST /users: response time < 2s": {
+                                "passes": 8171,
+                                "fails": 0,
+                                "name": "Swift POST /users: response time < 2s",
+                                "path": "::POST /users – create user::Swift POST /users: response time < 2s",
+                                "id": "2c76ac87d5861482c93e0d82fbeb371c"
+                            },
+                            "Swift POST /users: has body": {
+                                "name": "Swift POST /users: has body",
+                                "path": "::POST /users – create user::Swift POST /users: has body",
+                                "id": "654ea63db473a8163388e0345f4f2f5b",
+                                "passes": 8171,
+                                "fails": 0
+                            },
+                            "Java POST /users: status 2xx": {
+                                "name": "Java POST /users: status 2xx",
+                                "path": "::POST /users – create user::Java POST /users: status 2xx",
+                                "id": "32cebb371487314c1d3838f93bb50362",
+                                "passes": 8171,
+                                "fails": 0
+                            },
+                            "Java POST /users: response time < 2s": {
+                                "passes": 8171,
+                                "fails": 0,
+                                "name": "Java POST /users: response time < 2s",
+                                "path": "::POST /users – create user::Java POST /users: response time < 2s",
+                                "id": "1eeef42637a88e0f7d735ba12c3a094b"
+                            },
+                            "Java POST /users: has body": {
+                                "id": "d2daad3e13300e801526e353cd4df7f6",
+                                "passes": 8171,
+                                "fails": 0,
+                                "name": "Java POST /users: has body",
+                                "path": "::POST /users – create user::Java POST /users: has body"
+                            }
+                        }
+                },
+                "POST /orders – create order": {
+                    "id": "45e3eae29d0ea57822a6c9fbf6316e30",
+                    "groups": {},
+                    "checks": {
+                            "Swift POST /orders: status 2xx": {
+                                "path": "::POST /orders – create order::Swift POST /orders: status 2xx",
+                                "id": "0e8e0fd56737f50b7db56b98555ac60b",
+                                "passes": 8171,
+                                "fails": 0,
+                                "name": "Swift POST /orders: status 2xx"
+                            },
+                            "Swift POST /orders: response time < 2s": {
+                                "id": "8f749e12da64584973a2907e0d777eba",
+                                "passes": 8171,
+                                "fails": 0,
+                                "name": "Swift POST /orders: response time < 2s",
+                                "path": "::POST /orders – create order::Swift POST /orders: response time < 2s"
+                            },
+                            "Swift POST /orders: has body": {
+                                "name": "Swift POST /orders: has body",
+                                "path": "::POST /orders – create order::Swift POST /orders: has body",
+                                "id": "f76627c6450eeef5db98194f3567e456",
+                                "passes": 8171,
+                                "fails": 0
+                            },
+                            "Java POST /orders: status 2xx": {
+                                "name": "Java POST /orders: status 2xx",
+                                "path": "::POST /orders – create order::Java POST /orders: status 2xx",
+                                "id": "9267a8aa60f3046a42139c45f889c9aa",
+                                "passes": 8171,
+                                "fails": 0
+                            },
+                            "Java POST /orders: response time < 2s": {
+                                "fails": 0,
+                                "name": "Java POST /orders: response time < 2s",
+                                "path": "::POST /orders – create order::Java POST /orders: response time < 2s",
+                                "id": "d9886405a9d5eb0d00c8a664a331fd1c",
+                                "passes": 8171
+                            },
+                            "Java POST /orders: has body": {
+                                "name": "Java POST /orders: has body",
+                                "path": "::POST /orders – create order::Java POST /orders: has body",
+                                "id": "0f4579d192db247dd58758cbef2db801",
+                                "passes": 8171,
+                                "fails": 0
+                            }
+                        },
+                    "name": "POST /orders – create order",
+                    "path": "::POST /orders – create order"
+                }
+            }
+    }
+}

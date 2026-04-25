@@ -1,0 +1,91 @@
+# ────────────────────────────────────────────────
+# Build artifacts
+# ────────────────────────────────────────────────
+
+# Swift Package Manager
+.build/
+*.xcodeproj/
+*.xcworkspace/
+DerivedData/
+.swiftpm/
+Package.resolved
+
+# Maven / Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# ────────────────────────────────────────────────
+# Environment / secrets
+# ────────────────────────────────────────────────
+infrastructure/.env
+.env
+.env.local
+*.secret
+!.env.example
+
+# ────────────────────────────────────────────────
+# Benchmark raw data — multi-GB, not for git.
+# k6 *_summary.json files ARE committed (small);
+# the per-iteration *.json streams are NOT (multi-GB).
+# ────────────────────────────────────────────────
+
+# Catch-all for big k6 streams in any results folder
+benchmarking/results/**/*-test.json
+
+# But always keep the summary JSONs and the reports
+!benchmarking/results/**/*_summary.json
+!benchmarking/results/final/reports/
+
+# Old/discarded result folders (kept on the dev machine but not for the repo)
+benchmarking/results/2026*/
+benchmarking/results/reports/
+benchmarking/results/*.csv
+benchmarking/results/*.html
+benchmarking/results/*.png
+
+# But keep the final/ folder's CSVs and PNGs
+!benchmarking/results/final/*.csv
+!benchmarking/results/final/*.png
+!benchmarking/results/final/reports/*.csv
+
+# ────────────────────────────────────────────────
+# Logs
+# ────────────────────────────────────────────────
+*.log
+logs/
+!benchmarking/results/final/*.log
+
+# ────────────────────────────────────────────────
+# IDE / OS
+# ────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+.idea/
+.vscode/
+*.iml
+*.iws
+
+# ────────────────────────────────────────────────
+# Misc runtime data (do not commit)
+# ────────────────────────────────────────────────
+monitoring/grafana/data/

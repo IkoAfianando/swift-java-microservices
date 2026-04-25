@@ -1,0 +1,529 @@
+{
+  "uid": "swift-java-comparison",
+  "title": "Swift vs Java Microservices – Research Benchmark",
+  "description": "Iko Afianando (2602261970) – BINUS University 2025/2026",
+  "tags": ["research", "swift", "java", "microservices", "benchmark"],
+  "timezone": "browser",
+  "schemaVersion": 38,
+  "version": 2,
+  "refresh": "10s",
+  "time": { "from": "now-30m", "to": "now" },
+
+  "templating": {
+    "list": [
+      {
+        "name": "language",
+        "type": "custom",
+        "label": "Language",
+        "query": "swift,java",
+        "current": { "text": "All", "value": "$__all" },
+        "options": [
+          { "text": "All", "value": "$__all", "selected": true },
+          { "text": "Swift", "value": "swift" },
+          { "text": "Java", "value": "java" }
+        ],
+        "multi": true,
+        "includeAll": true,
+        "allValue": ".*"
+      },
+      {
+        "name": "service",
+        "type": "custom",
+        "label": "Service",
+        "query": "user-service,product-service,order-service",
+        "current": { "text": "All", "value": "$__all" },
+        "options": [
+          { "text": "All", "value": "$__all", "selected": true },
+          { "text": "user-service", "value": "user-service" },
+          { "text": "product-service", "value": "product-service" },
+          { "text": "order-service", "value": "order-service" }
+        ],
+        "multi": true,
+        "includeAll": true,
+        "allValue": ".*"
+      }
+    ]
+  },
+
+  "panels": [
+
+    {
+      "id": 1,
+      "title": "🚀 Request Rate – Swift vs Java (req/s)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "custom": { "lineWidth": 2, "fillOpacity": 10 }
+        },
+        "overrides": [
+          { "matcher": { "id": "byRegexp", "options": ".*Swift.*" }, "properties": [{ "id": "color", "value": { "mode": "fixed", "fixedColor": "orange" } }] },
+          { "matcher": { "id": "byRegexp", "options": ".*Java.*" }, "properties": [{ "id": "color", "value": { "mode": "fixed", "fixedColor": "blue" } }] }
+        ]
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(http_requests_total{language=\"swift\", service=~\"$service\"}[1m])) by (service)",
+          "legendFormat": "Swift – {{service}}",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "sum(rate(http_server_requests_seconds_count{language=\"java\", uri!~\"/actuator.*\", service=~\"$service\"}[1m])) by (service)",
+          "legendFormat": "Java – {{service}}",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 2,
+      "title": "❌ Error Rate (5xx) – Swift vs Java",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "min": 0,
+          "max": 1,
+          "custom": { "lineWidth": 2, "fillOpacity": 15 },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 0.01 },
+              { "color": "red", "value": 0.05 }
+            ]
+          }
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(http_requests_total{language=\"swift\", status=~\"5..\", service=~\"$service\"}[1m])) by (service) / sum(rate(http_requests_total{language=\"swift\", service=~\"$service\"}[1m])) by (service)",
+          "legendFormat": "Swift – {{service}}",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "sum(rate(http_server_requests_seconds_count{language=\"java\", outcome=\"SERVER_ERROR\", uri!~\"/actuator.*\", service=~\"$service\"}[1m])) by (service) / sum(rate(http_server_requests_seconds_count{language=\"java\", uri!~\"/actuator.*\", service=~\"$service\"}[1m])) by (service)",
+          "legendFormat": "Java – {{service}}",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 3,
+      "title": "⏱️ P50 Latency – Swift vs Java (ms)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 8 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ms",
+          "custom": { "lineWidth": 2 }
+        },
+        "overrides": [
+          { "matcher": { "id": "byRegexp", "options": ".*Swift.*" }, "properties": [{ "id": "color", "value": { "mode": "fixed", "fixedColor": "orange" } }] },
+          { "matcher": { "id": "byRegexp", "options": ".*Java.*" }, "properties": [{ "id": "color", "value": { "mode": "fixed", "fixedColor": "blue" } }] }
+        ]
+      },
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.50, sum(rate(http_request_duration_seconds_bucket{language=\"swift\", service=~\"$service\"}[1m])) by (le, service)) * 1000",
+          "legendFormat": "Swift – {{service}} P50",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "histogram_quantile(0.50, sum(rate(http_server_requests_seconds_bucket{language=\"java\", uri!~\"/actuator.*\", service=~\"$service\"}[1m])) by (le, service)) * 1000",
+          "legendFormat": "Java – {{service}} P50",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 4,
+      "title": "⏱️ P95 Latency – Swift vs Java (ms)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 8 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ms",
+          "custom": { "lineWidth": 2 }
+        },
+        "overrides": [
+          { "matcher": { "id": "byRegexp", "options": ".*Swift.*" }, "properties": [{ "id": "color", "value": { "mode": "fixed", "fixedColor": "orange" } }] },
+          { "matcher": { "id": "byRegexp", "options": ".*Java.*" }, "properties": [{ "id": "color", "value": { "mode": "fixed", "fixedColor": "blue" } }] }
+        ]
+      },
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{language=\"swift\", service=~\"$service\"}[1m])) by (le, service)) * 1000",
+          "legendFormat": "Swift – {{service}} P95",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(http_server_requests_seconds_bucket{language=\"java\", uri!~\"/actuator.*\", service=~\"$service\"}[1m])) by (le, service)) * 1000",
+          "legendFormat": "Java – {{service}} P95",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 5,
+      "title": "⏱️ P99 Latency – Swift vs Java (ms)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 8 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ms",
+          "custom": { "lineWidth": 2 }
+        },
+        "overrides": [
+          { "matcher": { "id": "byRegexp", "options": ".*Swift.*" }, "properties": [{ "id": "color", "value": { "mode": "fixed", "fixedColor": "orange" } }] },
+          { "matcher": { "id": "byRegexp", "options": ".*Java.*" }, "properties": [{ "id": "color", "value": { "mode": "fixed", "fixedColor": "blue" } }] }
+        ]
+      },
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket{language=\"swift\", service=~\"$service\"}[1m])) by (le, service)) * 1000",
+          "legendFormat": "Swift – {{service}} P99",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "histogram_quantile(0.99, sum(rate(http_server_requests_seconds_bucket{language=\"java\", uri!~\"/actuator.*\", service=~\"$service\"}[1m])) by (le, service)) * 1000",
+          "legendFormat": "Java – {{service}} P99",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 6,
+      "title": "🧵 Java JVM Threads (Live / Daemon)",
+      "description": "Swift uses async/await + NIO event loops (no OS threads per request). Java uses thread-per-request model.",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 16 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": { "lineWidth": 2, "fillOpacity": 8 }
+        }
+      },
+      "targets": [
+        {
+          "expr": "jvm_threads_live_threads{language=\"java\", service=~\"$service\"}",
+          "legendFormat": "{{service}} live threads",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "jvm_threads_daemon_threads{language=\"java\", service=~\"$service\"}",
+          "legendFormat": "{{service}} daemon threads",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "jvm_threads_peak_threads{language=\"java\", service=~\"$service\"}",
+          "legendFormat": "{{service}} peak threads",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 7,
+      "title": "🧠 Memory: Java JVM Heap vs Swift RSS (MB)",
+      "description": "Java: JVM heap used bytes. Swift: process RSS (resident set size) – ARC managed, no GC overhead.",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 16 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "decmbytes",
+          "custom": { "lineWidth": 2, "fillOpacity": 8 }
+        },
+        "overrides": [
+          { "matcher": { "id": "byRegexp", "options": ".*Swift.*" }, "properties": [{ "id": "color", "value": { "mode": "fixed", "fixedColor": "orange" } }] },
+          { "matcher": { "id": "byRegexp", "options": ".*Java.*" }, "properties": [{ "id": "color", "value": { "mode": "fixed", "fixedColor": "blue" } }] }
+        ]
+      },
+      "targets": [
+        {
+          "expr": "sum(jvm_memory_used_bytes{area=\"heap\", language=\"java\", service=~\"$service\"}) by (service) / 1024 / 1024",
+          "legendFormat": "Java – {{service}} heap",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "process_resident_memory_bytes{language=\"swift\", service=~\"$service\"} / 1024 / 1024",
+          "legendFormat": "Swift – {{service}} RSS",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 8,
+      "title": "📊 Latency Comparison – Last 5 min (Bar)",
+      "type": "bargauge",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 24 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ms",
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 100 },
+              { "color": "red", "value": 500 }
+            ]
+          }
+        }
+      },
+      "options": { "orientation": "horizontal", "reduceOptions": { "calcs": ["lastNotNull"] } },
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.50, sum(rate(http_request_duration_seconds_bucket{language=\"swift\"}[5m])) by (le)) * 1000",
+          "legendFormat": "Swift P50",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{language=\"swift\"}[5m])) by (le)) * 1000",
+          "legendFormat": "Swift P95",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket{language=\"swift\"}[5m])) by (le)) * 1000",
+          "legendFormat": "Swift P99",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "histogram_quantile(0.50, sum(rate(http_server_requests_seconds_bucket{language=\"java\", uri!~\"/actuator.*\"}[5m])) by (le)) * 1000",
+          "legendFormat": "Java P50",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(http_server_requests_seconds_bucket{language=\"java\", uri!~\"/actuator.*\"}[5m])) by (le)) * 1000",
+          "legendFormat": "Java P95",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "histogram_quantile(0.99, sum(rate(http_server_requests_seconds_bucket{language=\"java\", uri!~\"/actuator.*\"}[5m])) by (le)) * 1000",
+          "legendFormat": "Java P99",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 9,
+      "title": "🧠 Avg Memory Footprint – Swift vs Java (MB)",
+      "type": "bargauge",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 24 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "decmbytes",
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 256 },
+              { "color": "red", "value": 512 }
+            ]
+          }
+        }
+      },
+      "options": { "orientation": "horizontal", "reduceOptions": { "calcs": ["lastNotNull"] } },
+      "targets": [
+        {
+          "expr": "avg(process_resident_memory_bytes{language=\"swift\"}) / 1024 / 1024",
+          "legendFormat": "Swift avg RSS",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "avg(sum(jvm_memory_used_bytes{area=\"heap\", language=\"java\"}) by (service)) / 1024 / 1024",
+          "legendFormat": "Java avg JVM heap",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "avg(sum(jvm_memory_used_bytes{language=\"java\"}) by (service)) / 1024 / 1024",
+          "legendFormat": "Java avg total JVM",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 10,
+      "title": "☕ JVM Memory – Java Services (MB)",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 32 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "decmbytes",
+          "custom": { "lineWidth": 2 }
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(jvm_memory_used_bytes{area=\"heap\", language=\"java\", service=~\"$service\"}) by (service) / 1024 / 1024",
+          "legendFormat": "{{service}} heap used",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "sum(jvm_memory_max_bytes{area=\"heap\", language=\"java\", service=~\"$service\"}) by (service) / 1024 / 1024",
+          "legendFormat": "{{service}} heap max",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "sum(jvm_memory_used_bytes{area=\"nonheap\", language=\"java\", service=~\"$service\"}) by (service) / 1024 / 1024",
+          "legendFormat": "{{service}} non-heap used",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 11,
+      "title": "♻️ GC Overhead & Concurrent Phase Time – Java",
+      "description": "Swift uses ARC (compile-time reference counting) — zero runtime GC overhead. Java uses G1 GC.",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 32 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "custom": { "lineWidth": 2 }
+        }
+      },
+      "targets": [
+        {
+          "expr": "jvm_gc_overhead_percent{language=\"java\", service=~\"$service\"} / 100",
+          "legendFormat": "{{service}} GC overhead %",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "sum(rate(jvm_gc_concurrent_phase_time_seconds_sum{language=\"java\", service=~\"$service\"}[1m])) by (service)",
+          "legendFormat": "{{service}} concurrent GC rate",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 12,
+      "title": "🗄️ DB Connection Pool – Java HikariCP",
+      "description": "Active, idle, and pending connections per Java service. Swift uses PostgreSQL async driver.",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 40 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": { "lineWidth": 2 }
+        }
+      },
+      "targets": [
+        {
+          "expr": "hikaricp_connections_active{language=\"java\", service=~\"$service\"}",
+          "legendFormat": "{{service}} active",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "hikaricp_connections_idle{language=\"java\", service=~\"$service\"}",
+          "legendFormat": "{{service}} idle",
+          "datasource": "Prometheus"
+        },
+        {
+          "expr": "hikaricp_connections_pending{language=\"java\", service=~\"$service\"}",
+          "legendFormat": "{{service}} pending",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 13,
+      "title": "📡 Swift Memory RSS by Service (MB)",
+      "description": "Swift RSS (Resident Set Size) – ARC managed memory, no GC pauses.",
+      "type": "timeseries",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 40 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "decmbytes",
+          "custom": { "lineWidth": 2, "fillOpacity": 8 }
+        }
+      },
+      "targets": [
+        {
+          "expr": "process_resident_memory_bytes{language=\"swift\", service=~\"$service\"} / 1024 / 1024",
+          "legendFormat": "Swift – {{service}} RSS",
+          "datasource": "Prometheus"
+        }
+      ]
+    },
+
+    {
+      "id": 14,
+      "title": "📋 Service Status Overview",
+      "type": "stat",
+      "gridPos": { "h": 4, "w": 24, "x": 0, "y": 48 },
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [
+            { "type": "value", "options": { "1": { "text": "UP", "color": "green" }, "0": { "text": "DOWN", "color": "red" } } }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "red", "value": null },
+              { "color": "green", "value": 1 }
+            ]
+          }
+        }
+      },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "colorMode": "background" },
+      "targets": [
+        { "expr": "up{job=\"swift-user-service\"}", "legendFormat": "Swift User", "datasource": "Prometheus" },
+        { "expr": "up{job=\"swift-product-service\"}", "legendFormat": "Swift Product", "datasource": "Prometheus" },
+        { "expr": "up{job=\"swift-order-service\"}", "legendFormat": "Swift Order", "datasource": "Prometheus" },
+        { "expr": "up{job=\"java-user-service\"}", "legendFormat": "Java User", "datasource": "Prometheus" },
+        { "expr": "up{job=\"java-product-service\"}", "legendFormat": "Java Product", "datasource": "Prometheus" },
+        { "expr": "up{job=\"java-order-service\"}", "legendFormat": "Java Order", "datasource": "Prometheus" }
+      ]
+    },
+
+    {
+      "id": 15,
+      "title": "📝 Logs – All Services",
+      "type": "logs",
+      "gridPos": { "h": 10, "w": 24, "x": 0, "y": 52 },
+      "datasource": "Loki",
+      "options": {
+        "showTime": true,
+        "showLabels": true,
+        "wrapLogMessage": true,
+        "sortOrder": "Descending",
+        "dedupStrategy": "none"
+      },
+      "targets": [
+        {
+          "expr": "{job=~\"(swift|java)-.*-service\"}",
+          "legendFormat": "",
+          "datasource": "Loki"
+        }
+      ]
+    }
+  ]
+}
