@@ -32,7 +32,7 @@ public class UserController {
     @GetMapping
     @Cacheable(value = "users-list")
     public List<UserDTO> list() {
-        return userRepository.findAll().stream().map(UserDTO::from).toList();
+        return userRepository.findTop100ByOrderByCreatedAtDesc().stream().map(UserDTO::from).toList();
     }
 
     // POST /users

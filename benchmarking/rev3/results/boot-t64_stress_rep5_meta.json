@@ -1,0 +1,24 @@
+{
+  "run_id": "boot-t64_stress_rep5",
+  "config": "boot-t64",
+  "config_label": "Spring Boot, Tomcat platform threads, max 64 (matched to Vapor blocking pool)",
+  "target": "java",
+  "scenario": "stress",
+  "repetition": 5,
+  "config_env": {
+    "TOMCAT_THREADS_MAX": "64",
+    "VIRTUAL_THREADS": "false"
+  },
+  "k6_env": {
+    "TARGET": "java",
+    "SCENARIO": "stress",
+    "SUMMARY_PATH": "/Users/ikoafian/LEARN/RISET/swift-microservices/benchmarking/rev3/results/boot-t64_stress_rep5_k6summary.json.tmp",
+    "USER_URL": "http://localhost:9081",
+    "PRODUCT_URL": "http://localhost:9082",
+    "ORDER_URL": "http://localhost:9083"
+  },
+  "k6_returncode": 0,
+  "k6_wall_seconds": 210.79036593437195,
+  "finished_unix": 1790113234.346014,
+  "finished_iso": "2026-09-23T04:40:34"
+}

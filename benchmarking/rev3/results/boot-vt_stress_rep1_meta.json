@@ -1,0 +1,24 @@
+{
+  "run_id": "boot-vt_stress_rep1",
+  "config": "boot-vt",
+  "config_label": "Spring Boot, virtual threads (Java 21, spring.threads.virtual.enabled)",
+  "target": "java",
+  "scenario": "stress",
+  "repetition": 1,
+  "config_env": {
+    "TOMCAT_THREADS_MAX": "200",
+    "VIRTUAL_THREADS": "true"
+  },
+  "k6_env": {
+    "TARGET": "java",
+    "SCENARIO": "stress",
+    "SUMMARY_PATH": "/Users/ikoafian/LEARN/RISET/swift-microservices/benchmarking/rev3/results/boot-vt_stress_rep1_k6summary.json.tmp",
+    "USER_URL": "http://localhost:9081",
+    "PRODUCT_URL": "http://localhost:9082",
+    "ORDER_URL": "http://localhost:9083"
+  },
+  "k6_returncode": 0,
+  "k6_wall_seconds": 205.89925289154053,
+  "finished_unix": 1790098790.375835,
+  "finished_iso": "2026-09-23T00:39:50"
+}

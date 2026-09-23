@@ -1,0 +1,26 @@
+{
+  "run_id": "vapor_stress_rep3",
+  "config": "vapor",
+  "config_label": "Vapor (2 event loops, 64 blocking threads)",
+  "target": "swift",
+  "scenario": "stress",
+  "repetition": 3,
+  "config_env": {
+    "EVENT_LOOPS": "2",
+    "BLOCKING_THREADS": "64",
+    "DB_POOL_PER_LOOP": "10",
+    "SWIFT_ENV": "production"
+  },
+  "k6_env": {
+    "TARGET": "swift",
+    "SCENARIO": "stress",
+    "SUMMARY_PATH": "/Users/ikoafian/LEARN/RISET/swift-microservices/benchmarking/rev3/results/vapor_stress_rep3_k6summary.json.tmp",
+    "USER_URL": "http://localhost:8081",
+    "PRODUCT_URL": "http://localhost:8082",
+    "ORDER_URL": "http://localhost:8083"
+  },
+  "k6_returncode": 0,
+  "k6_wall_seconds": 203.0007438659668,
+  "finished_unix": 1790105549.046895,
+  "finished_iso": "2026-09-23T02:32:29"
+}

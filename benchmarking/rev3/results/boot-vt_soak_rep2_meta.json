@@ -1,0 +1,24 @@
+{
+  "run_id": "boot-vt_soak_rep2",
+  "config": "boot-vt",
+  "config_label": "Spring Boot, virtual threads (Java 21, spring.threads.virtual.enabled)",
+  "target": "java",
+  "scenario": "soak",
+  "repetition": 2,
+  "config_env": {
+    "TOMCAT_THREADS_MAX": "200",
+    "VIRTUAL_THREADS": "true"
+  },
+  "k6_env": {
+    "TARGET": "java",
+    "SCENARIO": "soak",
+    "SUMMARY_PATH": "/Users/ikoafian/LEARN/RISET/swift-microservices/benchmarking/rev3/results/boot-vt_soak_rep2_k6summary.json.tmp",
+    "USER_URL": "http://localhost:9081",
+    "PRODUCT_URL": "http://localhost:9082",
+    "ORDER_URL": "http://localhost:9083"
+  },
+  "k6_returncode": 0,
+  "k6_wall_seconds": 241.11143398284912,
+  "finished_unix": 1790102204.706794,
+  "finished_iso": "2026-09-23T01:36:44"
+}

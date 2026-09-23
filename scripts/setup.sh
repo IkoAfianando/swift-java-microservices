@@ -27,7 +27,7 @@ check_tool() {
   fi
 }
 
-# docker compose v2 is a plugin — needs its own check
+# docker compose v2 is a plugin, needs its own check
 check_compose() {
   if docker compose version &>/dev/null 2>&1; then
     echo -e "  ${GREEN}✓${NC} docker compose (v2 plugin) found"

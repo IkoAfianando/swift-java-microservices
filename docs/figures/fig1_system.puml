@@ -1,0 +1,41 @@
+@startuml fig1_system
+' Kept deliberately small. At one text column wide, every extra box shrinks the
+' type, so the detail that belongs in a table stays in the table and this shows
+' only the shape of the system and where the measurements are taken.
+skinparam dpi 300
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 20
+skinparam rectangleFontSize 19
+skinparam packageFontSize 20
+skinparam packageFontStyle bold
+skinparam noteFontSize 18
+skinparam shadowing false
+skinparam ArrowFontSize 17
+skinparam nodesep 14
+skinparam ranksep 20
+
+rectangle "k6 load generator\non the host" as K6 #FFF2CC
+
+package "One stack at a time\n1.5 cores, 1024 MB each" #E8F0FE {
+  rectangle "user\nbcrypt 10" as U #DCE9FB
+  rectangle "product\nRedis 30 s" as P #DCE9FB
+  rectangle "order\nfan-out" as O #DCE9FB
+}
+
+package "Shared" #EFEFEF {
+  database "PostgreSQL 15" as PG
+  database "Redis 7" as RD
+}
+
+rectangle "sampler\nCPU, RSS, histograms" as S #E6F4EA
+
+K6 --> U
+K6 --> P
+K6 --> O
+O --> U
+O --> P
+U --> PG
+P --> RD
+S --> U
+
+@enduml

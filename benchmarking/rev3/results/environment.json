@@ -1,0 +1,319 @@
+{
+  "captured_at": "2026-09-23T05:19:52",
+  "host": {
+    "model_identifier": "Mac16,1",
+    "chip": "Apple M4",
+    "logical_cores": "10",
+    "performance_cores": "4",
+    "efficiency_cores": "6",
+    "memory_bytes": "17179869184",
+    "os": "macOS 15.7.9",
+    "os_build": "24G830",
+    "architecture": "arm64"
+  },
+  "docker": {
+    "server_version": "29.8.0",
+    "cpus_allocated": 10,
+    "memory_allocated_bytes": 8319504384,
+    "storage_driver": "overlayfs",
+    "cgroup_version": "2",
+    "operating_system": "Docker Desktop",
+    "kernel_version": "7.0.12-linuxkit",
+    "compose_version": "5.5.1"
+  },
+  "containers": {
+    "swift-user-service": {
+      "image": "infrastructure-swift-user-service",
+      "image_id": "sha256:18345cc27cf334022a815a481efa89e3721d7972f8ecb846b1fcef5ea916a355",
+      "cpu_quota": 0,
+      "cpu_period": 0,
+      "cpu_limit_cores": 1.5,
+      "nano_cpus": 1500000000,
+      "memory_limit_bytes": 1073741824,
+      "memory_swap_bytes": 1073741824,
+      "state": "exited",
+      "env": {
+        "REDIS_URL": "redis://redis:6379",
+        "DB_POOL_PER_LOOP": "10",
+        "NIO_SINGLETON_GROUP_LOOP_COUNT": "2",
+        "SERVICE_NAME": "swift-user-service",
+        "PORT": "8081",
+        "NIO_SINGLETON_BLOCKING_POOL_THREAD_COUNT": "64",
+        "APP_ENV": "production",
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      }
+    },
+    "swift-product-service": {
+      "image": "infrastructure-swift-product-service",
+      "image_id": "sha256:4ae680c05981b3b8858c96ed7635c744e21f9f7a383f76f7911d6501c7628782",
+      "cpu_quota": 0,
+      "cpu_period": 0,
+      "cpu_limit_cores": 1.5,
+      "nano_cpus": 1500000000,
+      "memory_limit_bytes": 1073741824,
+      "memory_swap_bytes": 1073741824,
+      "state": "exited",
+      "env": {
+        "NIO_SINGLETON_BLOCKING_POOL_THREAD_COUNT": "64",
+        "REDIS_URL": "redis://redis:6379",
+        "APP_ENV": "production",
+        "NIO_SINGLETON_GROUP_LOOP_COUNT": "2",
+        "PORT": "8082",
+        "SERVICE_NAME": "swift-product-service",
+        "DB_POOL_PER_LOOP": "10",
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      }
+    },
+    "swift-order-service": {
+      "image": "infrastructure-swift-order-service",
+      "image_id": "sha256:3fcedf17964da1712e4cc21589e7061ff5163707610925ba38054c0261b1390e",
+      "cpu_quota": 0,
+      "cpu_period": 0,
+      "cpu_limit_cores": 1.5,
+      "nano_cpus": 1500000000,
+      "memory_limit_bytes": 1073741824,
+      "memory_swap_bytes": 1073741824,
+      "state": "exited",
+      "env": {
+        "APP_ENV": "production",
+        "USER_SERVICE_URL": "http://swift-user-service:8081",
+        "REDIS_URL": "redis://redis:6379",
+        "NIO_SINGLETON_BLOCKING_POOL_THREAD_COUNT": "64",
+        "PORT": "8083",
+        "NIO_SINGLETON_GROUP_LOOP_COUNT": "2",
+        "DB_POOL_PER_LOOP": "10",
+        "PRODUCT_SERVICE_URL": "http://swift-product-service:8082",
+        "SERVICE_NAME": "swift-order-service",
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      }
+    },
+    "java-user-service": {
+      "image": "infrastructure-java-user-service",
+      "image_id": "sha256:2ebb1563f8ecf6a358b17fcb0aea02579704cae9e91d611f4d9542ba4f451920",
+      "cpu_quota": 0,
+      "cpu_period": 0,
+      "cpu_limit_cores": 1.5,
+      "nano_cpus": 1500000000,
+      "memory_limit_bytes": 1073741824,
+      "memory_swap_bytes": 1073741824,
+      "state": "exited",
+      "env": {
+        "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "health,prometheus,metrics,info",
+        "SPRING_THREADS_VIRTUAL_ENABLED": "true",
+        "SPRING_REDIS_PORT": "6379",
+        "SERVER_PORT": "9081",
+        "SPRING_DATASOURCE_USERNAME": "research",
+        "SERVER_TOMCAT_THREADS_MINSPARE": "10",
+        "SERVICE_NAME": "java-user-service",
+        "SERVER_TOMCAT_THREADS_MAX": "200",
+        "SERVER_TOMCAT_ACCEPTCOUNT": "100",
+        "SERVER_TOMCAT_MBEANREGISTRY_ENABLED": "true",
+        "SPRING_REDIS_HOST": "redis",
+        "SPRING_PROFILES_ACTIVE": "docker",
+        "PATH": "/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "JAVA_HOME": "/opt/java/openjdk",
+        "LANG": "en_US.UTF-8",
+        "LANGUAGE": "en_US:en",
+        "LC_ALL": "en_US.UTF-8",
+        "JAVA_VERSION": "jdk-21.0.12+8",
+        "JAVA_OPTS": "-XX:+UseContainerSupport                -XX:MaxRAMPercentage=75.0                -XX:+UseG1GC                -XX:+OptimizeStringConcat                -XX:+UseStringDeduplication                -Djava.security.egd=file:/dev/./urandom"
+      }
+    },
+    "java-product-service": {
+      "image": "infrastructure-java-product-service",
+      "image_id": "sha256:6eb03021030e82f6d4c39a60aa9fb30c4e8eca230ee4d05d89ff0d75d19b038a",
+      "cpu_quota": 0,
+      "cpu_period": 0,
+      "cpu_limit_cores": 1.5,
+      "nano_cpus": 1500000000,
+      "memory_limit_bytes": 1073741824,
+      "memory_swap_bytes": 1073741824,
+      "state": "exited",
+      "env": {
+        "SERVER_TOMCAT_THREADS_MINSPARE": "10",
+        "SPRING_PROFILES_ACTIVE": "docker",
+        "SERVER_PORT": "9082",
+        "SERVER_TOMCAT_MBEANREGISTRY_ENABLED": "true",
+        "SERVER_TOMCAT_ACCEPTCOUNT": "100",
+        "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "health,prometheus,metrics,info",
+        "SPRING_REDIS_PORT": "6379",
+        "SERVER_TOMCAT_THREADS_MAX": "200",
+        "SPRING_REDIS_HOST": "redis",
+        "SERVICE_NAME": "java-product-service",
+        "SPRING_DATASOURCE_USERNAME": "research",
+        "SPRING_THREADS_VIRTUAL_ENABLED": "true",
+        "PATH": "/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "JAVA_HOME": "/opt/java/openjdk",
+        "LANG": "en_US.UTF-8",
+        "LANGUAGE": "en_US:en",
+        "LC_ALL": "en_US.UTF-8",
+        "JAVA_VERSION": "jdk-21.0.12+8",
+        "JAVA_OPTS": "-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -XX:+UseG1GC -Djava.security.egd=file:/dev/./urandom"
+      }
+    },
+    "java-order-service": {
+      "image": "infrastructure-java-order-service",
+      "image_id": "sha256:4d36b08bea70285439c519b459025223b3cfd11e9f6412de918297724559ec2f",
+      "cpu_quota": 0,
+      "cpu_period": 0,
+      "cpu_limit_cores": 1.5,
+      "nano_cpus": 1500000000,
+      "memory_limit_bytes": 1073741824,
+      "memory_swap_bytes": 1073741824,
+      "state": "exited",
+      "env": {
+        "SERVER_PORT": "9083",
+        "SERVER_TOMCAT_MBEANREGISTRY_ENABLED": "true",
+        "SERVER_TOMCAT_ACCEPTCOUNT": "100",
+        "SPRING_DATASOURCE_USERNAME": "research",
+        "SPRING_REDIS_HOST": "redis",
+        "SPRING_THREADS_VIRTUAL_ENABLED": "true",
+        "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "health,prometheus,metrics,info",
+        "PRODUCT_SERVICE_URL": "http://java-product-service:9082",
+        "SPRING_PROFILES_ACTIVE": "docker",
+        "USER_SERVICE_URL": "http://java-user-service:9081",
+        "SPRING_REDIS_PORT": "6379",
+        "SERVICE_NAME": "java-order-service",
+        "SERVER_TOMCAT_THREADS_MINSPARE": "10",
+        "SERVER_TOMCAT_THREADS_MAX": "200",
+        "PATH": "/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "JAVA_HOME": "/opt/java/openjdk",
+        "LANG": "en_US.UTF-8",
+        "LANGUAGE": "en_US:en",
+        "LC_ALL": "en_US.UTF-8",
+        "JAVA_VERSION": "jdk-21.0.12+8",
+        "JAVA_OPTS": "-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -XX:+UseG1GC -Djava.security.egd=file:/dev/./urandom"
+      }
+    },
+    "research-postgres": {
+      "image": "postgres:15-alpine",
+      "image_id": "sha256:eb72e44fdca6270e882be90645eaf7af032f55a45dbf096ba4dd9d08195b08e3",
+      "cpu_quota": 0,
+      "cpu_period": 0,
+      "cpu_limit_cores": 1.5,
+      "nano_cpus": 1500000000,
+      "memory_limit_bytes": 1073741824,
+      "memory_swap_bytes": 2147483648,
+      "state": "running",
+      "env": {
+        "POSTGRES_DB": "microservices_db",
+        "POSTGRES_USER": "research",
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "GOSU_VERSION": "1.19",
+        "LANG": "en_US.utf8",
+        "PG_MAJOR": "15",
+        "PG_VERSION": "15.17",
+        "PG_SHA256": "ae14f24c14727e0b2ded1c5553031666099bd1054db3ef44bfa6e2bd6d554a56",
+        "DOCKER_PG_LLVM_DEPS": "llvm19-dev \t\tclang19",
+        "PGDATA": "/var/lib/postgresql/data"
+      }
+    },
+    "research-redis": {
+      "image": "redis:7-alpine",
+      "image_id": "sha256:7aec734b2bb298a1d769fd8729f13b8514a41bf90fcdd1f38ec52267fbaa8ee6",
+      "cpu_quota": 0,
+      "cpu_period": 0,
+      "cpu_limit_cores": 0.5,
+      "nano_cpus": 500000000,
+      "memory_limit_bytes": 536870912,
+      "memory_swap_bytes": 1073741824,
+      "state": "running",
+      "env": {
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "GOSU_VERSION": "1.17",
+        "REDIS_VERSION": "7.4.8",
+        "REDIS_DOWNLOAD_URL": "http://download.redis.io/releases/redis-7.4.8.tar.gz",
+        "REDIS_DOWNLOAD_SHA": "f6773cb7d63be236c59c2917a82f1f08e47b77d89b2f0c9f53becb22b8ea4172"
+      }
+    }
+  },
+  "runtimes": {
+    "k6": "k6 v1.3.0 (commit/devel, go1.25.1, darwin/arm64)",
+    "vapor_requirement": "4.99.3",
+    "fluent_requirement": "4.9.0",
+    "fluent_postgres_requirement": "2.9.0",
+    "redis_requirement": "4.10.0",
+    "swift_tools_version": "5.10",
+    "swift_builder_image": "swift:6.0-jammy",
+    "spring_boot_version": "3.2.4",
+    "java_version_property": "21",
+    "java_builder_image": "maven:3.9-eclipse-temurin-21",
+    "java_runtime_image": "eclipse-temurin:21-jre-jammy",
+    "jvm_args": "-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -XX:+UseG1GC -XX:+OptimizeStringConcat -XX:+UseStringDeduplication -Djava.security.egd=file:/dev/./urandom",
+    "swift_runtime_libs": "Cxx.swiftmodule\nCxxStdlib.swiftmodule\nDistributed.swiftmodule\nFoundation.swiftmodule\nFoundationEssentials.swiftmodule",
+    "postgres_version": "postgres (PostgreSQL) 15.17",
+    "redis_version": "Redis server v=7.4.8 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=ccfd955b9fce8f87",
+    "jvm_runtime_reported": "openjdk version \"21.0.12\" 2026-07-21 LTS\nOpenJDK Runtime Environment Temurin-21.0.12+8 (build 21.0.12+8-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.12+8 (build 21.0.12+8-LTS, mixed mode, sharing)"
+  },
+  "datastores": {
+    "postgresql": {
+      "max_connections": "100",
+      "shared_buffers": "128MB",
+      "work_mem": "4MB",
+      "effective_cache_size": "4GB",
+      "maintenance_work_mem": "64MB",
+      "wal_buffers": "4MB",
+      "synchronous_commit": "on",
+      "fsync": "on",
+      "max_worker_processes": "8",
+      "random_page_cost": "4"
+    },
+    "redis": {
+      "maxmemory": "0",
+      "maxmemory-policy": "noeviction",
+      "appendonly": "yes",
+      "save": "3600 1 300 100 60 10000",
+      "io-threads": "1",
+      "databases": "16"
+    }
+  },
+  "application_parity": {
+    "bcrypt_cost": {
+      "vapor": 10,
+      "spring": 10,
+      "note": "Vapor app.passwords.use(.bcrypt(cost: 10)); Spring BCryptPasswordEncoder default strength 10"
+    },
+    "database_pool_size": {
+      "vapor": "DB_POOL_PER_LOOP x event loops",
+      "spring": "spring.datasource.hikari.maximum-pool-size",
+      "note": "both resolve to 20 connections per service"
+    },
+    "cache_ttl_seconds": {
+      "vapor": 30,
+      "spring": 30
+    },
+    "list_endpoint_row_cap": {
+      "GET /users": 100,
+      "GET /orders": 50,
+      "GET /products": "uncapped on both stacks, catalogue seeded at 5 rows",
+      "note": "the Spring services were corrected in this revision to apply the same row caps and ordering as the Vapor services"
+    },
+    "latency_histogram_buckets": "72 finite buckets, identical boundaries on both stacks",
+    "response_payload_fields": {
+      "user": [
+        "id",
+        "name",
+        "email",
+        "createdAt"
+      ],
+      "product": [
+        "id",
+        "name",
+        "description",
+        "price",
+        "stock",
+        "createdAt",
+        "updatedAt"
+      ],
+      "order": [
+        "id",
+        "userId",
+        "status",
+        "total",
+        "items",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  }
+}

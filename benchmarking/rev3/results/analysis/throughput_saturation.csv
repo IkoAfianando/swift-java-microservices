@@ -1,0 +1,17 @@
+scenario,config,n,peak_server_rps_median,client_rps_median,error_rate_median,saturated,note
+load,vapor,5,103.8,46.2,0.00000,no,error rate at or below one percent
+load,boot-t200,5,84.4,37.7,0.00000,no,error rate at or below one percent
+load,boot-t64,5,89.0,37.8,0.00000,no,error rate at or below one percent
+load,boot-vt,5,118.0,47.1,0.00000,no,error rate at or below one percent
+stress,vapor,5,605.7,35.9,0.09476,yes,"errors exceed one percent, so offered load is beyond what the configuration sustains"
+stress,boot-t200,5,37.8,24.7,0.00851,no,error rate at or below one percent
+stress,boot-t64,5,36.4,25.1,0.00000,no,error rate at or below one percent
+stress,boot-vt,5,605.0,47.3,0.00010,no,error rate at or below one percent
+spike,vapor,5,986.2,431.3,0.00000,no,error rate at or below one percent
+spike,boot-t200,5,1005.6,432.7,0.00000,no,error rate at or below one percent
+spike,boot-t64,5,1001.6,431.4,0.00000,no,error rate at or below one percent
+spike,boot-vt,5,1006.6,433.8,0.00000,no,error rate at or below one percent
+soak,vapor,5,30.0,25.7,0.00000,no,error rate at or below one percent
+soak,boot-t200,5,37.2,25.6,0.00000,no,error rate at or below one percent
+soak,boot-t64,5,37.2,25.6,0.00000,no,error rate at or below one percent
+soak,boot-vt,5,37.0,25.1,0.00000,no,error rate at or below one percent

@@ -29,7 +29,7 @@ public class OrderController {
 
     @GetMapping("/orders")
     public List<Order> list() {
-        return orderRepository.findAll();
+        return orderRepository.findTop50ByOrderByCreatedAtDesc();
     }
 
     @PostMapping("/orders")

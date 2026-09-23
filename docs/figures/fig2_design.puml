@@ -1,0 +1,26 @@
+@startuml fig2_design
+' Research design for this revision: what varies, what is held equal, what is
+' measured, and how the runs are ordered. The second column is the substance of
+' the parity claim, and names the dimensions the earlier version left open.
+skinparam dpi 300
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 15
+skinparam rectangleFontSize 14
+skinparam shadowing false
+skinparam ArrowFontSize 13
+skinparam nodesep 10
+skinparam ranksep 14
+
+rectangle "**Independent variable**\n\nStack configuration, four levels\n\nVapor, 2 event loops\nSpring Boot, Tomcat 200 (default)\nSpring Boot, Tomcat 64\nSpring Boot, Java 21 virtual threads" as IV #FFF8E1
+
+rectangle "**Held equal across configurations**\n\n1.5 CPU cores, 1024 MB per container\n20 database connections per service\nRedis cache, 30 s time to live\n72 identical histogram buckets\nSame row caps on every list endpoint\nSame warm-up, run in its own process\nOne configuration measured at a time" as CV #DCE9FB
+
+rectangle "**Measured**\n\nTail latency, client and server\nThroughput and error rate\nResident set size, steady and peak\nJVM heap, used and committed\nGarbage collection pauses\nBusy threads, database queue and wait\nControl-plane probe latency" as DV #E8F5E9
+
+rectangle "**Protocol**\n\n4 workloads x 4 configurations\nx 5 repetitions = 80 sequential runs\n\nRepetitions interleaved, configuration\norder rotated, containers recreated and\ntables truncated before every run\n\nMedian, interquartile range, bootstrap\ninterval, Mann-Whitney U with A12" as PR #F5F5F5
+
+IV -right-> CV
+CV -right-> DV
+DV -right-> PR
+
+@enduml

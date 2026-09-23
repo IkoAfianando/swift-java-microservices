@@ -1,0 +1,97 @@
+scenario,metric,config_a,config_b,n_a,n_b,median_a,median_b,U,p_value,rank_biserial,vargha_delaney_a12,significant_at_0.05,direction
+load,client_p95_ms,vapor,boot-t200,5,5,1199.2254,2587.7677,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,client_p95_ms,vapor,boot-t64,5,5,1199.2254,2588.5329,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,client_p95_ms,vapor,boot-vt,5,5,1199.2254,836.2696,25.0,0.00794,1.000,1.000,yes,vapor higher
+load,client_p99_ms,vapor,boot-t200,5,5,2296.2103,3799.3366,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,client_p99_ms,vapor,boot-t64,5,5,2296.2103,3993.2895,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,client_p99_ms,vapor,boot-vt,5,5,2296.2103,1283.5404,25.0,0.00794,1.000,1.000,yes,vapor higher
+load,server_p95_ms,vapor,boot-t200,5,5,954.5657,2262.0358,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,server_p95_ms,vapor,boot-t64,5,5,954.5657,2258.0890,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,server_p95_ms,vapor,boot-vt,5,5,954.5657,665.7273,24.0,0.01587,0.920,0.960,yes,vapor higher
+load,throughput_rps,vapor,boot-t200,5,5,46.2495,37.6770,25.0,0.00794,1.000,1.000,yes,vapor higher
+load,throughput_rps,vapor,boot-t64,5,5,46.2495,37.8304,25.0,0.00794,1.000,1.000,yes,vapor higher
+load,throughput_rps,vapor,boot-vt,5,5,46.2495,47.0945,4.0,0.09524,-0.680,0.160,no,vapor lower
+load,rss_steady_bytes,vapor,boot-t200,5,5,41859153.9200,1083493580.8000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,rss_steady_bytes,vapor,boot-t64,5,5,41859153.9200,1076048691.2000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,rss_steady_bytes,vapor,boot-vt,5,5,41859153.9200,1063308492.8000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,rss_peak_bytes,vapor,boot-t200,5,5,50824478.7200,1108344832.0000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,rss_peak_bytes,vapor,boot-t64,5,5,50824478.7200,1108869120.0000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,rss_peak_bytes,vapor,boot-vt,5,5,50824478.7200,1102577664.0000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,error_rate,vapor,boot-t200,5,5,0.0000,0.0000,12.5,1.00000,0.000,0.500,no,equal
+load,error_rate,vapor,boot-t64,5,5,0.0000,0.0000,12.5,1.00000,0.000,0.500,no,equal
+load,error_rate,vapor,boot-vt,5,5,0.0000,0.0000,12.5,1.00000,0.000,0.500,no,equal
+load,probe_p95_ms,vapor,boot-t200,5,5,86.8104,194.3656,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,probe_p95_ms,vapor,boot-t64,5,5,86.8104,187.5802,0.0,0.00794,-1.000,0.000,yes,vapor lower
+load,probe_p95_ms,vapor,boot-vt,5,5,86.8104,201.0930,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,client_p95_ms,vapor,boot-t200,5,5,23206.3438,33312.7670,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,client_p95_ms,vapor,boot-t64,5,5,23206.3438,28295.2465,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,client_p95_ms,vapor,boot-vt,5,5,23206.3438,21990.2962,22.0,0.05556,0.760,0.880,no,vapor higher
+stress,client_p99_ms,vapor,boot-t200,5,5,25906.0463,42594.4796,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,client_p99_ms,vapor,boot-t64,5,5,25906.0463,31697.9036,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,client_p99_ms,vapor,boot-vt,5,5,25906.0463,26321.7661,9.0,0.54762,-0.280,0.360,no,vapor lower
+stress,server_p95_ms,vapor,boot-t200,5,5,22240.8221,22061.3739,17.0,0.42063,0.360,0.680,no,vapor higher
+stress,server_p95_ms,vapor,boot-t64,5,0,22240.8221,nan,,,,,,insufficient data
+stress,server_p95_ms,vapor,boot-vt,5,5,22240.8221,22280.3257,14.0,0.84127,0.120,0.560,no,vapor lower
+stress,throughput_rps,vapor,boot-t200,5,5,35.8929,24.7129,25.0,0.00794,1.000,1.000,yes,vapor higher
+stress,throughput_rps,vapor,boot-t64,5,5,35.8929,25.0724,25.0,0.00794,1.000,1.000,yes,vapor higher
+stress,throughput_rps,vapor,boot-vt,5,5,35.8929,47.3447,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,rss_steady_bytes,vapor,boot-t200,5,5,54089744.3840,1092196761.6000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,rss_steady_bytes,vapor,boot-t64,5,5,54089744.3840,1067869798.4000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,rss_steady_bytes,vapor,boot-vt,5,5,54089744.3840,1132566937.6000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,rss_peak_bytes,vapor,boot-t200,5,5,77806436.3520,1133091225.6000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,rss_peak_bytes,vapor,boot-t64,5,5,77806436.3520,1091043328.0000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,rss_peak_bytes,vapor,boot-vt,5,5,77806436.3520,1347420160.0000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+stress,error_rate,vapor,boot-t200,5,5,0.0948,0.0085,25.0,0.00794,1.000,1.000,yes,vapor higher
+stress,error_rate,vapor,boot-t64,5,5,0.0948,0.0000,25.0,0.00794,1.000,1.000,yes,vapor higher
+stress,error_rate,vapor,boot-vt,5,5,0.0948,0.0001,25.0,0.00794,1.000,1.000,yes,vapor higher
+stress,probe_p95_ms,vapor,boot-t200,5,5,2185.1666,1474.7401,19.0,0.22222,0.520,0.760,no,vapor higher
+stress,probe_p95_ms,vapor,boot-t64,5,5,2185.1666,2139.0560,13.0,1.00000,0.040,0.520,no,vapor higher
+stress,probe_p95_ms,vapor,boot-vt,5,5,2185.1666,4113.0425,0.0,0.00794,-1.000,0.000,yes,vapor lower
+spike,client_p95_ms,vapor,boot-t200,5,5,14.7289,15.3090,7.0,0.30952,-0.440,0.280,no,vapor lower
+spike,client_p95_ms,vapor,boot-t64,5,5,14.7289,14.8350,8.0,0.42063,-0.360,0.320,no,vapor lower
+spike,client_p95_ms,vapor,boot-vt,5,5,14.7289,13.8004,17.0,0.42063,0.360,0.680,no,vapor higher
+spike,client_p99_ms,vapor,boot-t200,5,5,40.2733,23.1236,20.0,0.15079,0.600,0.800,no,vapor higher
+spike,client_p99_ms,vapor,boot-t64,5,5,40.2733,24.4047,25.0,0.00794,1.000,1.000,yes,vapor higher
+spike,client_p99_ms,vapor,boot-vt,5,5,40.2733,21.4072,25.0,0.00794,1.000,1.000,yes,vapor higher
+spike,server_p95_ms,vapor,boot-t200,5,5,8.3813,4.3385,25.0,0.00794,1.000,1.000,yes,vapor higher
+spike,server_p95_ms,vapor,boot-t64,5,5,8.3813,3.8135,25.0,0.00794,1.000,1.000,yes,vapor higher
+spike,server_p95_ms,vapor,boot-vt,5,5,8.3813,6.6048,25.0,0.00794,1.000,1.000,yes,vapor higher
+spike,throughput_rps,vapor,boot-t200,5,5,431.2844,432.7089,8.0,0.42063,-0.360,0.320,no,vapor lower
+spike,throughput_rps,vapor,boot-t64,5,5,431.2844,431.3654,8.0,0.42063,-0.360,0.320,no,vapor lower
+spike,throughput_rps,vapor,boot-vt,5,5,431.2844,433.8365,0.0,0.00794,-1.000,0.000,yes,vapor lower
+spike,rss_steady_bytes,vapor,boot-t200,5,5,47819259.9040,1105408819.2000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+spike,rss_steady_bytes,vapor,boot-t64,5,5,47819259.9040,1084647014.4000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+spike,rss_steady_bytes,vapor,boot-vt,5,5,47819259.9040,1095027916.8000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+spike,rss_peak_bytes,vapor,boot-t200,5,5,50165972.9920,1119145164.8000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+spike,rss_peak_bytes,vapor,boot-t64,5,5,50165972.9920,1091462758.4000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+spike,rss_peak_bytes,vapor,boot-vt,5,5,50165972.9920,1109603123.2000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+spike,error_rate,vapor,boot-t200,5,5,0.0000,0.0000,12.5,1.00000,0.000,0.500,no,equal
+spike,error_rate,vapor,boot-t64,5,5,0.0000,0.0000,12.5,1.00000,0.000,0.500,no,equal
+spike,error_rate,vapor,boot-vt,5,5,0.0000,0.0000,12.5,1.00000,0.000,0.500,no,equal
+spike,probe_p95_ms,vapor,boot-t200,5,5,6.7503,10.3972,0.0,0.00794,-1.000,0.000,yes,vapor lower
+spike,probe_p95_ms,vapor,boot-t64,5,5,6.7503,10.4082,0.0,0.00794,-1.000,0.000,yes,vapor lower
+spike,probe_p95_ms,vapor,boot-vt,5,5,6.7503,10.7745,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,client_p95_ms,vapor,boot-t200,5,5,98.3917,122.5902,3.0,0.05556,-0.760,0.120,no,vapor lower
+soak,client_p95_ms,vapor,boot-t64,5,5,98.3917,115.4700,5.0,0.15079,-0.600,0.200,no,vapor lower
+soak,client_p95_ms,vapor,boot-vt,5,5,98.3917,264.6838,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,client_p99_ms,vapor,boot-t200,5,5,223.5204,196.8765,11.0,0.84127,-0.120,0.440,no,vapor higher
+soak,client_p99_ms,vapor,boot-t64,5,5,223.5204,181.4569,22.0,0.05556,0.760,0.880,no,vapor higher
+soak,client_p99_ms,vapor,boot-vt,5,5,223.5204,395.6169,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,server_p95_ms,vapor,boot-t200,5,5,98.6117,122.7697,3.0,0.05556,-0.760,0.120,no,vapor lower
+soak,server_p95_ms,vapor,boot-t64,5,5,98.6117,115.6929,4.0,0.09524,-0.680,0.160,no,vapor lower
+soak,server_p95_ms,vapor,boot-vt,5,5,98.6117,268.2638,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,throughput_rps,vapor,boot-t200,5,5,25.6934,25.5778,23.0,0.03175,0.840,0.920,yes,vapor higher
+soak,throughput_rps,vapor,boot-t64,5,5,25.6934,25.6354,17.0,0.42063,0.360,0.680,no,vapor higher
+soak,throughput_rps,vapor,boot-vt,5,5,25.6934,25.1348,25.0,0.00794,1.000,1.000,yes,vapor higher
+soak,rss_steady_bytes,vapor,boot-t200,5,5,37396414.4640,1080138137.6000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,rss_steady_bytes,vapor,boot-t64,5,5,37396414.4640,1066611507.2000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,rss_steady_bytes,vapor,boot-vt,5,5,37396414.4640,1061473484.8000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,rss_peak_bytes,vapor,boot-t200,5,5,39631978.4960,1096600780.8000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,rss_peak_bytes,vapor,boot-t64,5,5,39631978.4960,1091357900.8000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,rss_peak_bytes,vapor,boot-vt,5,5,39631978.4960,1083074150.4000,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,error_rate,vapor,boot-t200,5,5,0.0000,0.0000,12.5,1.00000,0.000,0.500,no,equal
+soak,error_rate,vapor,boot-t64,5,5,0.0000,0.0000,12.5,1.00000,0.000,0.500,no,equal
+soak,error_rate,vapor,boot-vt,5,5,0.0000,0.0000,12.5,1.00000,0.000,0.500,no,equal
+soak,probe_p95_ms,vapor,boot-t200,5,5,5.7264,10.6730,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,probe_p95_ms,vapor,boot-t64,5,5,5.7264,10.7308,0.0,0.00794,-1.000,0.000,yes,vapor lower
+soak,probe_p95_ms,vapor,boot-vt,5,5,5.7264,19.2282,0.0,0.00794,-1.000,0.000,yes,vapor lower

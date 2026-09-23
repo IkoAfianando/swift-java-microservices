@@ -1,0 +1,517 @@
+scenario,config,config_label,metric,n,median,iqr,q1,q3,ci95_low,ci95_high
+load,vapor,Vapor,client_p50_ms,5,5.0080,0.1730,4.9530,5.1260,3.9370,5.4580
+load,vapor,Vapor,client_p95_ms,5,1199.2254,96.7304,1104.6251,1201.3555,1096.0300,1288.4372
+load,vapor,Vapor,client_p99_ms,5,2296.2103,103.9160,2193.0978,2297.0138,2098.9784,2490.0709
+load,vapor,Vapor,client_max_ms,5,3704.2460,195.1010,3593.1430,3788.2440,3398.1470,3988.2590
+load,vapor,Vapor,server_p50_ms,5,2.3933,0.1038,2.3529,2.4567,2.1154,2.4765
+load,vapor,Vapor,server_p95_ms,5,954.5657,108.5623,863.2379,971.8003,715.8279,992.0005
+load,vapor,Vapor,server_p99_ms,5,2097.4924,137.0672,1987.8604,2124.9276,1955.4491,2127.9424
+load,vapor,Vapor,server_mean_ms,5,122.4223,3.9669,119.4013,123.3681,100.4348,126.6327
+load,vapor,Vapor,throughput_rps,5,46.2495,0.1744,46.1139,46.2884,46.0509,47.4830
+load,vapor,Vapor,requests_total,5,9836.0000,64.0000,9828.0000,9892.0000,9820.0000,10136.0000
+load,vapor,Vapor,error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+load,vapor,Vapor,rss_peak_bytes,5,50824478.7200,10684989.4400,50740592.6400,61425582.0800,49429872.6400,62862131.2000
+load,vapor,Vapor,rss_steady_bytes,5,41859153.9200,12163481.6000,39898316.8000,52061798.4000,39484129.2800,52082769.9200
+load,vapor,Vapor,cpu_mean_percent_of_one_core,5,82.1030,1.2548,81.1173,82.3721,80.2121,84.4523
+load,vapor,Vapor,probe_p50_ms,5,2.0150,0.1285,1.9135,2.0420,1.8385,2.1450
+load,vapor,Vapor,probe_p95_ms,5,86.8104,0.6046,86.5845,87.1891,74.5190,88.5615
+load,vapor,Vapor,probe_p99_ms,5,198.5708,20.7311,196.7178,217.4488,191.0927,281.4740
+load,vapor,Vapor,k6_cpu_mean_percent_of_one_core,5,2.7361,0.0869,2.7128,2.7996,2.6882,2.8145
+load,vapor,Vapor,k6_cpu_peak_percent_of_one_core,5,4.3741,0.2112,4.3702,4.5814,4.3664,5.0283
+load,vapor,Vapor,k6_rss_peak_bytes,5,84246528.0000,1064960.0000,83509248.0000,84574208.0000,82690048.0000,84656128.0000
+load,vapor,Vapor,server_throughput_peak_rps,5,103.8000,4.6000,101.6000,106.2000,95.6000,112.6000
+load,vapor,Vapor,ep_get_users_p95_ms,5,486.7118,16.9127,477.7798,494.6925,399.0746,495.3917
+load,vapor,Vapor,ep_get_products_p95_ms,5,9.8630,2.0671,8.6683,10.7354,8.4650,11.4472
+load,vapor,Vapor,ep_post_users_p95_ms,5,2193.5664,113.0454,2092.9204,2205.9658,1999.0048,2292.6324
+load,vapor,Vapor,ep_post_orders_p95_ms,5,14.9700,1.9834,13.5802,15.5636,13.2287,17.1899
+load,boot-t200,"Spring Boot, Tomcat 200",client_p50_ms,5,8.5750,0.7530,8.4875,9.2405,7.7645,9.2970
+load,boot-t200,"Spring Boot, Tomcat 200",client_p95_ms,5,2587.7677,6.4127,2584.5657,2590.9785,2496.5450,2689.0705
+load,boot-t200,"Spring Boot, Tomcat 200",client_p99_ms,5,3799.3366,103.5050,3793.6090,3897.1140,3694.9169,4084.4744
+load,boot-t200,"Spring Boot, Tomcat 200",client_max_ms,5,8478.4330,1307.7240,7894.7520,9202.4760,7400.8190,10089.4180
+load,boot-t200,"Spring Boot, Tomcat 200",server_p50_ms,5,3.0653,0.0771,3.0093,3.0864,2.8551,3.1500
+load,boot-t200,"Spring Boot, Tomcat 200",server_p95_ms,5,2262.0358,19.8042,2249.8247,2269.6289,2172.7212,2324.2313
+load,boot-t200,"Spring Boot, Tomcat 200",server_p99_ms,5,3617.0117,47.5206,3596.6543,3644.1750,3512.6697,3793.8878
+load,boot-t200,"Spring Boot, Tomcat 200",server_mean_ms,5,315.2798,11.8864,306.3229,318.2093,302.7030,327.7964
+load,boot-t200,"Spring Boot, Tomcat 200",throughput_rps,5,37.6770,0.2631,37.5605,37.8236,37.1247,38.2258
+load,boot-t200,"Spring Boot, Tomcat 200",requests_total,5,8048.0000,20.0000,8036.0000,8056.0000,7928.0000,8108.0000
+load,boot-t200,"Spring Boot, Tomcat 200",error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+load,boot-t200,"Spring Boot, Tomcat 200",rss_peak_bytes,5,1108344832.0000,73819750.4000,1106771968.0000,1180591718.4000,1099746508.8000,1237843968.0000
+load,boot-t200,"Spring Boot, Tomcat 200",rss_steady_bytes,5,1083493580.8000,55522099.2000,1076835123.2000,1132357222.4000,1061263769.6000,1134349516.8000
+load,boot-t200,"Spring Boot, Tomcat 200",cpu_mean_percent_of_one_core,5,104.6532,2.8213,103.9383,106.7596,102.3832,107.4321
+load,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_used_steady_bytes,5,66039952.0000,1724576.0000,66035320.0000,67759896.0000,65985540.0000,69009480.0000
+load,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_used_peak_bytes,5,118627824.0000,3642128.0000,116366968.0000,120009096.0000,107453624.0000,172497336.0000
+load,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_committed_steady_bytes,5,105906176.0000,19922944.0000,105906176.0000,125829120.0000,96468992.0000,132120576.0000
+load,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_committed_peak_bytes,5,132120576.0000,12582912.0000,128974848.0000,141557760.0000,121634816.0000,249561088.0000
+load,boot-t200,"Spring Boot, Tomcat 200",gc_pause_count,5,73.0000,32.0000,66.0000,98.0000,56.0000,121.0000
+load,boot-t200,"Spring Boot, Tomcat 200",gc_pause_total_seconds,5,0.4550,0.1620,0.4480,0.6100,0.4270,0.6550
+load,boot-t200,"Spring Boot, Tomcat 200",tomcat_busy_threads_median,5,1.0000,0.0000,1.0000,1.0000,1.0000,1.0000
+load,boot-t200,"Spring Boot, Tomcat 200",tomcat_busy_threads_peak,5,64.0000,8.0000,58.0000,66.0000,52.0000,68.0000
+load,boot-t200,"Spring Boot, Tomcat 200",tomcat_threads_max_config,5,200.0000,0.0000,200.0000,200.0000,200.0000,200.0000
+load,boot-t200,"Spring Boot, Tomcat 200",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+load,boot-t200,"Spring Boot, Tomcat 200",db_pool_pending_peak,5,43.0000,8.0000,37.0000,45.0000,29.0000,48.0000
+load,boot-t200,"Spring Boot, Tomcat 200",db_pool_active_peak,5,20.0000,0.0000,20.0000,20.0000,20.0000,20.0000
+load,boot-t200,"Spring Boot, Tomcat 200",db_wait_mean_ms,5,326.5859,13.6213,323.0945,336.7158,312.4418,357.0261
+load,boot-t200,"Spring Boot, Tomcat 200",probe_p50_ms,5,3.3890,0.2940,3.2920,3.5860,3.2810,3.6740
+load,boot-t200,"Spring Boot, Tomcat 200",probe_p95_ms,5,194.3656,10.0360,193.6598,203.6958,184.3784,204.3472
+load,boot-t200,"Spring Boot, Tomcat 200",probe_p99_ms,5,1578.7971,200.8538,1483.5757,1684.4294,1289.4621,1880.0252
+load,boot-t200,"Spring Boot, Tomcat 200",k6_cpu_mean_percent_of_one_core,5,2.3755,0.0100,2.3657,2.3757,2.3079,2.4090
+load,boot-t200,"Spring Boot, Tomcat 200",k6_cpu_peak_percent_of_one_core,5,3.8947,0.0093,3.8886,3.8979,3.6236,3.9055
+load,boot-t200,"Spring Boot, Tomcat 200",k6_rss_peak_bytes,5,80838656.0000,1081344.0000,80478208.0000,81559552.0000,78675968.0000,81854464.0000
+load,boot-t200,"Spring Boot, Tomcat 200",server_throughput_peak_rps,5,84.4000,5.0000,80.2000,85.2000,79.8000,86.6000
+load,boot-t200,"Spring Boot, Tomcat 200",ep_get_users_p95_ms,5,1698.7446,193.8841,1593.4452,1787.3293,1588.0038,1788.8620
+load,boot-t200,"Spring Boot, Tomcat 200",ep_get_products_p95_ms,5,11.5122,0.3900,11.5062,11.8962,10.6203,12.8304
+load,boot-t200,"Spring Boot, Tomcat 200",ep_post_users_p95_ms,5,3603.6401,91.3742,3597.0344,3688.4086,3589.9969,3803.7834
+load,boot-t200,"Spring Boot, Tomcat 200",ep_post_orders_p95_ms,5,18.1780,1.0820,17.3850,18.4671,16.7922,18.5959
+load,boot-t64,"Spring Boot, Tomcat 64",client_p50_ms,5,7.9445,1.0345,7.7785,8.8130,7.3685,9.1190
+load,boot-t64,"Spring Boot, Tomcat 64",client_p95_ms,5,2588.5329,9.5041,2585.5359,2595.0400,2584.3775,2605.8916
+load,boot-t64,"Spring Boot, Tomcat 64",client_p99_ms,5,3993.2895,124.2909,3898.0590,4022.3499,3696.8806,4087.6181
+load,boot-t64,"Spring Boot, Tomcat 64",client_max_ms,5,7999.4150,1079.8920,7501.7690,8581.6610,6990.9830,10598.5210
+load,boot-t64,"Spring Boot, Tomcat 64",server_p50_ms,5,2.8966,0.2719,2.8625,3.1344,2.7439,3.1403
+load,boot-t64,"Spring Boot, Tomcat 64",server_p95_ms,5,2258.0890,34.9448,2233.5642,2268.5090,2213.5416,2273.4948
+load,boot-t64,"Spring Boot, Tomcat 64",server_p99_ms,5,3703.0327,84.8432,3688.0366,3772.8798,3492.6435,3812.9020
+load,boot-t64,"Spring Boot, Tomcat 64",server_mean_ms,5,306.6674,14.3119,298.4925,312.8044,291.6318,318.0452
+load,boot-t64,"Spring Boot, Tomcat 64",throughput_rps,5,37.8304,0.4652,37.7925,38.2577,37.5231,38.5293
+load,boot-t64,"Spring Boot, Tomcat 64",requests_total,5,8080.0000,164.0000,8040.0000,8204.0000,8032.0000,8208.0000
+load,boot-t64,"Spring Boot, Tomcat 64",error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+load,boot-t64,"Spring Boot, Tomcat 64",rss_peak_bytes,5,1108869120.0000,48339353.6000,1090414182.4000,1138753536.0000,1082969292.8000,1148400435.2000
+load,boot-t64,"Spring Boot, Tomcat 64",rss_steady_bytes,5,1076048691.2000,50121932.8000,1047579852.8000,1097701785.6000,1045954560.0000,1099222220.8000
+load,boot-t64,"Spring Boot, Tomcat 64",cpu_mean_percent_of_one_core,5,104.5445,1.4290,103.7429,105.1719,102.4854,108.3460
+load,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_used_steady_bytes,5,66707192.0000,5660208.0000,64240280.0000,69900488.0000,62828736.0000,70292588.0000
+load,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_used_peak_bytes,5,104888048.0000,11616624.0000,102992280.0000,114608904.0000,88695976.0000,127588472.0000
+load,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_committed_steady_bytes,5,100663296.0000,9437184.0000,95420416.0000,104857600.0000,90177536.0000,119537664.0000
+load,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_committed_peak_bytes,5,113246208.0000,20971520.0000,111149056.0000,132120576.0000,98566144.0000,159383552.0000
+load,boot-t64,"Spring Boot, Tomcat 64",gc_pause_count,5,91.0000,11.0000,89.0000,100.0000,80.0000,116.0000
+load,boot-t64,"Spring Boot, Tomcat 64",gc_pause_total_seconds,5,0.6210,0.0650,0.5700,0.6350,0.5500,0.7580
+load,boot-t64,"Spring Boot, Tomcat 64",tomcat_busy_threads_median,5,1.0000,0.0000,1.0000,1.0000,1.0000,1.0000
+load,boot-t64,"Spring Boot, Tomcat 64",tomcat_busy_threads_peak,5,58.0000,6.0000,58.0000,64.0000,57.0000,64.0000
+load,boot-t64,"Spring Boot, Tomcat 64",tomcat_threads_max_config,5,64.0000,0.0000,64.0000,64.0000,64.0000,64.0000
+load,boot-t64,"Spring Boot, Tomcat 64",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+load,boot-t64,"Spring Boot, Tomcat 64",db_pool_pending_peak,5,37.0000,2.0000,36.0000,38.0000,33.0000,40.0000
+load,boot-t64,"Spring Boot, Tomcat 64",db_pool_active_peak,5,20.0000,0.0000,20.0000,20.0000,20.0000,20.0000
+load,boot-t64,"Spring Boot, Tomcat 64",db_wait_mean_ms,5,327.9373,9.4758,326.3993,335.8750,324.2749,337.1154
+load,boot-t64,"Spring Boot, Tomcat 64",probe_p50_ms,5,3.3570,0.1230,3.3500,3.4730,3.3435,3.5860
+load,boot-t64,"Spring Boot, Tomcat 64",probe_p95_ms,5,187.5802,14.7047,175.6201,190.3248,161.0904,190.6560
+load,boot-t64,"Spring Boot, Tomcat 64",probe_p99_ms,5,1457.1099,32.4706,1440.7432,1473.2138,1383.5900,1624.2137
+load,boot-t64,"Spring Boot, Tomcat 64",k6_cpu_mean_percent_of_one_core,5,2.4136,0.0421,2.3809,2.4231,2.3472,2.4649
+load,boot-t64,"Spring Boot, Tomcat 64",k6_cpu_peak_percent_of_one_core,5,4.0748,0.2377,3.8991,4.1368,3.8479,4.1496
+load,boot-t64,"Spring Boot, Tomcat 64",k6_rss_peak_bytes,5,80707584.0000,376832.0000,80412672.0000,80789504.0000,77758464.0000,83705856.0000
+load,boot-t64,"Spring Boot, Tomcat 64",server_throughput_peak_rps,5,89.0000,7.2000,87.0000,94.2000,85.6000,99.4000
+load,boot-t64,"Spring Boot, Tomcat 64",ep_get_users_p95_ms,5,1701.0481,94.7902,1686.7673,1781.5575,1675.6199,1797.1660
+load,boot-t64,"Spring Boot, Tomcat 64",ep_get_products_p95_ms,5,11.2587,0.4371,10.9228,11.3599,10.6599,11.4370
+load,boot-t64,"Spring Boot, Tomcat 64",ep_post_users_p95_ms,5,3687.6363,104.6866,3684.2089,3788.8955,3495.1010,3794.5237
+load,boot-t64,"Spring Boot, Tomcat 64",ep_post_orders_p95_ms,5,17.5984,1.6470,16.8345,18.4814,16.4471,18.5068
+load,boot-vt,"Spring Boot, virtual threads",client_p50_ms,5,7.0665,0.4635,7.0405,7.5040,5.9580,9.6555
+load,boot-vt,"Spring Boot, virtual threads",client_p95_ms,5,836.2696,190.0371,778.7979,968.8350,767.7513,1066.0911
+load,boot-vt,"Spring Boot, virtual threads",client_p99_ms,5,1283.5404,574.6006,1080.3691,1654.9697,977.7755,1713.7298
+load,boot-vt,"Spring Boot, virtual threads",client_max_ms,5,2431.7510,939.3600,1582.3120,2521.6720,1565.3070,2534.9940
+load,boot-vt,"Spring Boot, virtual threads",server_p50_ms,5,2.9872,0.1383,2.9081,3.0464,2.6787,3.2421
+load,boot-vt,"Spring Boot, virtual threads",server_p95_ms,5,665.7273,7.5291,662.3683,669.8974,636.7057,726.9210
+load,boot-vt,"Spring Boot, virtual threads",server_p99_ms,5,1073.4253,301.6980,919.7285,1221.4265,837.5789,1274.2003
+load,boot-vt,"Spring Boot, virtual threads",server_mean_ms,5,96.6203,5.3229,96.0446,101.3676,91.2729,102.1042
+load,boot-vt,"Spring Boot, virtual threads",throughput_rps,5,47.0945,1.2813,46.4276,47.7089,46.2608,47.8604
+load,boot-vt,"Spring Boot, virtual threads",requests_total,5,10064.0000,200.0000,9924.0000,10124.0000,9828.0000,10148.0000
+load,boot-vt,"Spring Boot, virtual threads",error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+load,boot-vt,"Spring Boot, virtual threads",rss_peak_bytes,5,1102577664.0000,24851251.2000,1090519040.0000,1115370291.2000,1056335462.4000,1141794406.4000
+load,boot-vt,"Spring Boot, virtual threads",rss_steady_bytes,5,1063308492.8000,32453427.2000,1058222899.2000,1090676326.4000,1026818048.0000,1108973977.6000
+load,boot-vt,"Spring Boot, virtual threads",cpu_mean_percent_of_one_core,5,87.7598,2.8175,86.0032,88.8208,85.8994,92.0683
+load,boot-vt,"Spring Boot, virtual threads",jvm_heap_used_steady_bytes,5,64637504.0000,5740008.0000,63315040.0000,69055048.0000,62996636.0000,69797896.0000
+load,boot-vt,"Spring Boot, virtual threads",jvm_heap_used_peak_bytes,5,102211192.0000,2369600.0000,100347392.0000,102716992.0000,95124200.0000,135744616.0000
+load,boot-vt,"Spring Boot, virtual threads",jvm_heap_committed_steady_bytes,5,105906176.0000,7340032.0000,100663296.0000,108003328.0000,98566144.0000,110100480.0000
+load,boot-vt,"Spring Boot, virtual threads",jvm_heap_committed_peak_bytes,5,120586240.0000,8388608.0000,114294784.0000,122683392.0000,103809024.0000,159383552.0000
+load,boot-vt,"Spring Boot, virtual threads",gc_pause_count,5,112.0000,47.0000,77.0000,124.0000,32.0000,136.0000
+load,boot-vt,"Spring Boot, virtual threads",gc_pause_total_seconds,5,0.3460,0.1530,0.1960,0.3490,0.1590,0.4260
+load,boot-vt,"Spring Boot, virtual threads",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+load,boot-vt,"Spring Boot, virtual threads",db_pool_pending_peak,5,7.0000,6.0000,3.0000,9.0000,0.0000,21.0000
+load,boot-vt,"Spring Boot, virtual threads",db_pool_active_peak,5,20.0000,0.0000,20.0000,20.0000,20.0000,20.0000
+load,boot-vt,"Spring Boot, virtual threads",db_wait_mean_ms,5,51.9384,28.1683,24.5625,52.7308,23.4286,59.5029
+load,boot-vt,"Spring Boot, virtual threads",probe_p50_ms,5,3.0440,0.0725,3.0095,3.0820,2.9620,3.2490
+load,boot-vt,"Spring Boot, virtual threads",probe_p95_ms,5,201.0930,65.1153,192.3060,257.4213,109.4738,279.9370
+load,boot-vt,"Spring Boot, virtual threads",probe_p99_ms,5,989.7365,231.7484,789.2227,1020.9712,754.4639,1110.0210
+load,boot-vt,"Spring Boot, virtual threads",k6_cpu_mean_percent_of_one_core,5,2.5554,0.0331,2.5521,2.5853,2.4868,2.5896
+load,boot-vt,"Spring Boot, virtual threads",k6_cpu_peak_percent_of_one_core,5,4.1395,0.0053,4.1373,4.1426,3.8957,4.1475
+load,boot-vt,"Spring Boot, virtual threads",k6_rss_peak_bytes,5,81575936.0000,2834432.0000,80855040.0000,83689472.0000,80773120.0000,83722240.0000
+load,boot-vt,"Spring Boot, virtual threads",server_throughput_peak_rps,5,118.0000,4.2000,114.0000,118.2000,109.8000,122.0000
+load,boot-vt,"Spring Boot, virtual threads",ep_get_users_p95_ms,5,746.2454,481.9430,664.5180,1146.4610,625.8228,1211.1788
+load,boot-vt,"Spring Boot, virtual threads",ep_get_products_p95_ms,5,7.7000,1.8850,6.4965,8.3815,4.9604,11.0292
+load,boot-vt,"Spring Boot, virtual threads",ep_post_users_p95_ms,5,1216.5150,503.9920,1018.3250,1522.3170,904.0182,1553.9960
+load,boot-vt,"Spring Boot, virtual threads",ep_post_orders_p95_ms,5,19.2480,1.0228,18.3992,19.4220,17.4042,23.7722
+stress,vapor,Vapor,client_p50_ms,5,8495.0590,192.0630,8418.2480,8610.3110,8128.4270,8997.9800
+stress,vapor,Vapor,client_p95_ms,5,23206.3438,396.6524,23106.4455,23503.0978,21607.8522,24198.0180
+stress,vapor,Vapor,client_p99_ms,5,25906.0463,678.1924,25693.3558,26371.5482,25595.6202,26394.9504
+stress,vapor,Vapor,client_max_ms,5,30196.5660,698.0570,30000.0460,30698.1030,29194.4530,31093.8240
+stress,vapor,Vapor,server_p50_ms,5,7545.6104,168.7312,7412.6339,7581.3652,7155.4382,7847.9179
+stress,vapor,Vapor,server_p95_ms,5,22240.8221,554.1802,21972.2844,22526.4646,21846.0273,23130.9140
+stress,vapor,Vapor,server_p99_ms,5,27092.2891,587.2411,26741.2660,27328.5071,26287.1087,27619.3483
+stress,vapor,Vapor,server_mean_ms,5,8511.8168,72.3157,8508.4457,8580.7614,8501.0008,8625.6841
+stress,vapor,Vapor,throughput_rps,5,35.8929,0.1255,35.8080,35.9335,35.6690,36.2553
+stress,vapor,Vapor,requests_total,5,7311.0000,72.0000,7250.0000,7322.0000,7229.0000,7332.0000
+stress,vapor,Vapor,error_rate,5,0.0948,0.0057,0.0914,0.0971,0.0841,0.1273
+stress,vapor,Vapor,rss_peak_bytes,5,77806436.3520,1887436.8000,76145491.9680,78032928.7680,71303168.0000,79921414.1440
+stress,vapor,Vapor,rss_steady_bytes,5,54089744.3840,786432.0000,53401878.5280,54188310.5280,53086257.1520,54597255.1680
+stress,vapor,Vapor,cpu_mean_percent_of_one_core,5,145.6860,1.2483,144.8492,146.0976,143.2706,146.1712
+stress,vapor,Vapor,probe_p50_ms,5,3.0610,0.0485,3.0370,3.0855,3.0050,3.2020
+stress,vapor,Vapor,probe_p95_ms,5,2185.1666,199.6226,1991.4188,2191.0414,1893.4868,2387.8942
+stress,vapor,Vapor,probe_p99_ms,5,3693.5603,311.3651,3684.2469,3995.6121,3596.5678,4434.4344
+stress,vapor,Vapor,k6_cpu_mean_percent_of_one_core,5,2.4704,0.0542,2.4242,2.4783,2.3904,2.5757
+stress,vapor,Vapor,k6_cpu_peak_percent_of_one_core,5,6.7587,0.2232,6.7301,6.9533,6.4521,8.0838
+stress,vapor,Vapor,k6_rss_peak_bytes,5,259915776.0000,9060352.0000,256376832.0000,265437184.0000,246824960.0000,269844480.0000
+stress,vapor,Vapor,server_throughput_peak_rps,5,605.7000,647.2000,66.0000,713.2000,55.1250,808.3000
+stress,vapor,Vapor,ep_get_users_p95_ms,5,14245.9971,260.4643,14033.3940,14293.8583,13897.9013,14801.7911
+stress,vapor,Vapor,ep_post_users_p95_ms,5,24732.8504,303.9094,24495.3462,24799.2556,23701.0088,25403.4886
+stress,boot-t200,"Spring Boot, Tomcat 200",client_p50_ms,5,10747.1420,258.0230,10606.6600,10864.6830,9692.6560,11128.8800
+stress,boot-t200,"Spring Boot, Tomcat 200",client_p95_ms,5,33312.7670,247.4857,33110.8600,33358.3457,33078.7728,34432.1998
+stress,boot-t200,"Spring Boot, Tomcat 200",client_p99_ms,5,42594.4796,362.8380,42337.9588,42700.7968,41351.9191,42875.1708
+stress,boot-t200,"Spring Boot, Tomcat 200",client_max_ms,5,50400.6520,1594.0670,50301.4430,51895.5100,50300.5090,53003.5180
+stress,boot-t200,"Spring Boot, Tomcat 200",server_p50_ms,5,1841.4307,72.6738,1816.9905,1889.6643,1809.0529,1892.6725
+stress,boot-t200,"Spring Boot, Tomcat 200",server_p95_ms,5,22061.3739,242.5651,21944.6533,22187.2184,21810.5566,22273.7732
+stress,boot-t200,"Spring Boot, Tomcat 200",server_p99_ms,5,30000.0000,0.0000,30000.0000,30000.0000,30000.0000,30000.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",server_mean_ms,5,5917.9306,62.2818,5888.1795,5950.4612,5806.2353,5974.9428
+stress,boot-t200,"Spring Boot, Tomcat 200",throughput_rps,5,24.7129,0.1976,24.5877,24.7853,24.4700,25.0175
+stress,boot-t200,"Spring Boot, Tomcat 200",requests_total,5,5199.0000,43.0000,5172.0000,5215.0000,5149.0000,5261.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",error_rate,5,0.0085,0.0032,0.0065,0.0098,0.0059,0.0107
+stress,boot-t200,"Spring Boot, Tomcat 200",rss_peak_bytes,5,1133091225.6000,37958451.2000,1113692569.6000,1151651020.8000,1106981683.2000,1178809139.2000
+stress,boot-t200,"Spring Boot, Tomcat 200",rss_steady_bytes,5,1092196761.6000,26214400.0000,1077726412.8000,1103940812.8000,1052717875.2000,1126327910.4000
+stress,boot-t200,"Spring Boot, Tomcat 200",cpu_mean_percent_of_one_core,5,149.5435,0.5540,149.0994,149.6535,148.2773,149.9842
+stress,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_used_steady_bytes,5,62713752.0000,7619716.0000,62486276.0000,70105992.0000,61031040.0000,71670248.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_used_peak_bytes,5,121924064.0000,9493264.0000,115318392.0000,124811656.0000,102118008.0000,127397320.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_committed_steady_bytes,5,97517568.0000,9961472.0000,92274688.0000,102236160.0000,89128960.0000,116391936.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_committed_peak_bytes,5,138412032.0000,1048576.0000,138412032.0000,139460608.0000,135266304.0000,141557760.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",gc_pause_count,5,59.0000,11.0000,54.0000,65.0000,16.0000,72.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",gc_pause_total_seconds,5,0.6700,0.0750,0.6620,0.7370,0.4570,0.7770
+stress,boot-t200,"Spring Boot, Tomcat 200",tomcat_busy_threads_median,5,1.0000,0.0000,1.0000,1.0000,1.0000,1.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",tomcat_busy_threads_peak,5,200.0000,0.0000,200.0000,200.0000,200.0000,200.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",tomcat_threads_max_config,5,200.0000,0.0000,200.0000,200.0000,200.0000,200.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",db_pool_pending_peak,5,179.0000,1.0000,178.0000,179.0000,177.0000,180.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",db_pool_active_peak,5,20.0000,0.0000,20.0000,20.0000,20.0000,20.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",db_wait_mean_ms,5,3045.9452,167.0672,3005.6318,3172.6990,2972.7973,3509.3809
+stress,boot-t200,"Spring Boot, Tomcat 200",probe_p50_ms,5,5.4595,0.5240,5.3780,5.9020,5.0930,5.9730
+stress,boot-t200,"Spring Boot, Tomcat 200",probe_p95_ms,5,1474.7401,603.2328,1333.7787,1937.0115,1201.8804,2606.9582
+stress,boot-t200,"Spring Boot, Tomcat 200",probe_p99_ms,5,6582.5524,664.4901,6061.9611,6726.4513,4302.6383,7607.7108
+stress,boot-t200,"Spring Boot, Tomcat 200",k6_cpu_mean_percent_of_one_core,5,2.3479,0.0078,2.3440,2.3518,2.3004,2.3673
+stress,boot-t200,"Spring Boot, Tomcat 200",k6_cpu_peak_percent_of_one_core,5,7.0499,0.7001,6.7728,7.4730,6.3084,7.7327
+stress,boot-t200,"Spring Boot, Tomcat 200",k6_rss_peak_bytes,5,251183104.0000,6586368.0000,245334016.0000,251920384.0000,229212160.0000,252166144.0000
+stress,boot-t200,"Spring Boot, Tomcat 200",server_throughput_peak_rps,5,37.8000,3.0000,37.0000,40.0000,35.4000,40.2000
+stress,boot-t200,"Spring Boot, Tomcat 200",ep_get_users_p95_ms,5,31088.2978,699.4606,30709.9610,31409.4216,30038.3988,32204.5559
+stress,boot-t200,"Spring Boot, Tomcat 200",ep_post_users_p95_ms,5,36701.4710,1130.3232,36131.8827,37262.2060,36106.3550,37299.4585
+stress,boot-t64,"Spring Boot, Tomcat 64",client_p50_ms,5,11601.9840,213.3910,11484.1940,11697.5850,11299.5285,11708.6830
+stress,boot-t64,"Spring Boot, Tomcat 64",client_p95_ms,5,28295.2465,602.7226,27905.0590,28507.7817,27802.4856,31296.3920
+stress,boot-t64,"Spring Boot, Tomcat 64",client_p99_ms,5,31697.9036,2727.1153,31504.3168,34231.4321,31334.3102,35397.2880
+stress,boot-t64,"Spring Boot, Tomcat 64",client_max_ms,5,38906.7140,2007.3820,38096.3070,40103.6890,36104.0940,40596.7420
+stress,boot-t64,"Spring Boot, Tomcat 64",throughput_rps,5,25.0724,0.2652,24.8133,25.0785,24.1190,25.1640
+stress,boot-t64,"Spring Boot, Tomcat 64",requests_total,5,5274.0000,56.0000,5219.0000,5275.0000,5071.0000,5292.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",rss_peak_bytes,5,1091043328.0000,62180556.8000,1067345510.4000,1129526067.2000,1066401792.0000,1159620198.4000
+stress,boot-t64,"Spring Boot, Tomcat 64",rss_steady_bytes,5,1067869798.4000,87241523.2000,1027499622.4000,1114741145.6000,1020159590.4000,1134139801.6000
+stress,boot-t64,"Spring Boot, Tomcat 64",cpu_mean_percent_of_one_core,5,149.0127,0.4731,148.5824,149.0555,148.2767,149.3756
+stress,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_used_steady_bytes,5,64988248.0000,1178968.0000,64706984.0000,65885952.0000,57995152.0000,74100000.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_used_peak_bytes,5,92148392.0000,18402192.0000,91051776.0000,109453968.0000,88872352.0000,137484384.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_committed_steady_bytes,5,101711872.0000,9437184.0000,94371840.0000,103809024.0000,93323264.0000,111673344.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_committed_peak_bytes,5,106954752.0000,35651584.0000,103809024.0000,139460608.0000,97517568.0000,159383552.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",gc_pause_count,5,49.0000,24.0000,28.0000,52.0000,11.0000,53.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",gc_pause_total_seconds,5,0.2960,0.3130,0.1770,0.4900,0.0810,0.5400
+stress,boot-t64,"Spring Boot, Tomcat 64",tomcat_busy_threads_median,5,1.0000,0.0000,1.0000,1.0000,1.0000,1.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",tomcat_busy_threads_peak,5,64.0000,0.0000,64.0000,64.0000,64.0000,64.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",tomcat_threads_max_config,5,64.0000,0.0000,64.0000,64.0000,64.0000,64.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",db_pool_pending_peak,5,43.0000,0.0000,43.0000,43.0000,42.0000,44.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",db_pool_active_peak,5,20.0000,0.0000,20.0000,20.0000,20.0000,20.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",db_wait_mean_ms,5,1035.6248,55.7864,994.0627,1049.8491,973.8049,1106.6360
+stress,boot-t64,"Spring Boot, Tomcat 64",probe_p50_ms,5,5.7485,0.4455,5.5965,6.0420,5.5835,6.1280
+stress,boot-t64,"Spring Boot, Tomcat 64",probe_p95_ms,5,2139.0560,259.7624,1963.5564,2223.3188,1583.2473,2495.4541
+stress,boot-t64,"Spring Boot, Tomcat 64",probe_p99_ms,5,6999.0333,1418.2308,6601.4058,8019.6365,5559.5910,8450.1276
+stress,boot-t64,"Spring Boot, Tomcat 64",k6_cpu_mean_percent_of_one_core,5,2.4236,0.1808,2.2816,2.4625,2.2573,2.4876
+stress,boot-t64,"Spring Boot, Tomcat 64",k6_cpu_peak_percent_of_one_core,5,7.4974,0.1875,7.4726,7.6601,7.1685,7.7418
+stress,boot-t64,"Spring Boot, Tomcat 64",k6_rss_peak_bytes,5,258228224.0000,3686400.0000,257736704.0000,261423104.0000,241909760.0000,262438912.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",server_throughput_peak_rps,5,36.4000,1.0000,36.2000,37.2000,35.0000,39.0000
+stress,boot-t64,"Spring Boot, Tomcat 64",ep_get_users_p95_ms,5,26587.0493,589.2113,26472.3135,27061.5248,26049.2665,30600.3894
+stress,boot-t64,"Spring Boot, Tomcat 64",ep_post_users_p95_ms,5,29627.1919,705.1538,29204.1547,29909.3085,28747.1723,32499.1454
+stress,boot-vt,"Spring Boot, virtual threads",client_p50_ms,5,4617.7080,388.4325,4399.2160,4787.6485,4318.7060,5686.6120
+stress,boot-vt,"Spring Boot, virtual threads",client_p95_ms,5,21990.2962,902.9142,21379.8567,22282.7710,19681.4704,22411.0754
+stress,boot-vt,"Spring Boot, virtual threads",client_p99_ms,5,26321.7661,296.9380,26266.2087,26563.1467,22817.1774,27902.0803
+stress,boot-vt,"Spring Boot, virtual threads",client_max_ms,5,30535.8410,499.0900,30104.1140,30603.2040,29625.7710,32794.8910
+stress,boot-vt,"Spring Boot, virtual threads",server_p50_ms,5,3835.0779,848.3815,3180.7069,4029.0884,2198.6142,5215.8919
+stress,boot-vt,"Spring Boot, virtual threads",server_p95_ms,5,22280.3257,703.1443,21835.9643,22539.1086,20188.3255,22716.7496
+stress,boot-vt,"Spring Boot, virtual threads",server_p99_ms,5,27398.7995,376.7970,27105.7989,27482.5959,22668.9825,28170.0909
+stress,boot-vt,"Spring Boot, virtual threads",server_mean_ms,5,6550.9847,174.5349,6405.2858,6579.8207,5671.4196,7047.9496
+stress,boot-vt,"Spring Boot, virtual threads",throughput_rps,5,47.3447,2.0897,46.0662,48.1559,45.4696,48.6515
+stress,boot-vt,"Spring Boot, virtual threads",requests_total,5,9725.0000,416.0000,9430.0000,9846.0000,9349.0000,9907.0000
+stress,boot-vt,"Spring Boot, virtual threads",error_rate,5,0.0001,0.0002,0.0000,0.0002,0.0000,0.0002
+stress,boot-vt,"Spring Boot, virtual threads",rss_peak_bytes,5,1347420160.0000,148792934.4000,1319108608.0000,1467901542.4000,1299605094.4000,1515821465.6000
+stress,boot-vt,"Spring Boot, virtual threads",rss_steady_bytes,5,1132566937.6000,46032486.4000,1120088883.2000,1166121369.6000,1095132774.4000,1213097574.4000
+stress,boot-vt,"Spring Boot, virtual threads",cpu_mean_percent_of_one_core,5,145.1600,0.3706,145.1316,145.5022,144.5702,147.9325
+stress,boot-vt,"Spring Boot, virtual threads",jvm_heap_used_steady_bytes,5,72724128.0000,4243372.0000,69674588.0000,73917960.0000,65722144.0000,74013172.0000
+stress,boot-vt,"Spring Boot, virtual threads",jvm_heap_used_peak_bytes,5,361209464.0000,33993696.0000,340322968.0000,374316664.0000,297246328.0000,456105592.0000
+stress,boot-vt,"Spring Boot, virtual threads",jvm_heap_committed_steady_bytes,5,112197632.0000,11534336.0000,102760448.0000,114294784.0000,94371840.0000,134217728.0000
+stress,boot-vt,"Spring Boot, virtual threads",jvm_heap_committed_peak_bytes,5,414187520.0000,112197632.0000,384827392.0000,497025024.0000,361758720.0000,550502400.0000
+stress,boot-vt,"Spring Boot, virtual threads",gc_pause_count,5,147.0000,102.0000,71.0000,173.0000,61.0000,202.0000
+stress,boot-vt,"Spring Boot, virtual threads",gc_pause_total_seconds,5,1.1060,0.5180,0.7060,1.2240,0.6870,1.2260
+stress,boot-vt,"Spring Boot, virtual threads",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+stress,boot-vt,"Spring Boot, virtual threads",db_pool_pending_peak,5,769.0000,4.0000,765.0000,769.0000,765.0000,770.0000
+stress,boot-vt,"Spring Boot, virtual threads",db_pool_active_peak,5,20.0000,0.0000,20.0000,20.0000,20.0000,20.0000
+stress,boot-vt,"Spring Boot, virtual threads",db_wait_mean_ms,5,6609.7057,89.0444,6574.3830,6663.4274,5902.3223,7111.3858
+stress,boot-vt,"Spring Boot, virtual threads",probe_p50_ms,5,4.3360,0.2105,4.2505,4.4610,4.0210,5.3480
+stress,boot-vt,"Spring Boot, virtual threads",probe_p95_ms,5,4113.0425,712.4778,3546.0042,4258.4820,3167.3588,4389.7688
+stress,boot-vt,"Spring Boot, virtual threads",probe_p99_ms,5,7541.7978,711.3374,7126.2026,7837.5400,5848.5094,8877.7956
+stress,boot-vt,"Spring Boot, virtual threads",k6_cpu_mean_percent_of_one_core,5,2.4669,0.1233,2.4545,2.5778,2.3728,2.5976
+stress,boot-vt,"Spring Boot, virtual threads",k6_cpu_peak_percent_of_one_core,5,8.8027,1.5193,7.5050,9.0244,6.5588,10.6687
+stress,boot-vt,"Spring Boot, virtual threads",k6_rss_peak_bytes,5,259391488.0000,4521984.0000,257867776.0000,262389760.0000,251609088.0000,262553600.0000
+stress,boot-vt,"Spring Boot, virtual threads",server_throughput_peak_rps,5,605.0000,431.8000,186.8000,618.6000,101.0000,793.4000
+stress,boot-vt,"Spring Boot, virtual threads",ep_get_users_p95_ms,5,20318.8405,394.4520,20199.2315,20593.6835,19221.2229,20911.9653
+stress,boot-vt,"Spring Boot, virtual threads",ep_post_users_p95_ms,5,23253.9521,1841.2993,21791.5126,23632.8119,19909.7585,23989.2342
+spike,vapor,Vapor,client_p50_ms,5,4.3230,0.0330,4.2930,4.3260,4.2760,4.5560
+spike,vapor,Vapor,client_p95_ms,5,14.7289,1.7950,13.7382,15.5332,13.5410,15.8665
+spike,vapor,Vapor,client_p99_ms,5,40.2733,3.3203,38.3497,41.6700,31.1904,43.0537
+spike,vapor,Vapor,client_max_ms,5,97.0440,41.0650,86.3670,127.4320,78.5740,149.5710
+spike,vapor,Vapor,server_p50_ms,5,2.6267,0.0115,2.6187,2.6302,2.5811,2.6990
+spike,vapor,Vapor,server_p95_ms,5,8.3813,0.7344,8.0276,8.7620,7.7732,9.0507
+spike,vapor,Vapor,server_p99_ms,5,18.8424,5.5790,14.6845,20.2635,13.9122,22.0452
+spike,vapor,Vapor,server_mean_ms,5,3.6508,0.2489,3.5261,3.7749,3.5163,3.8791
+spike,vapor,Vapor,throughput_rps,5,431.2844,0.3911,430.9679,431.3590,430.4486,432.0110
+spike,vapor,Vapor,requests_total,5,64872.0000,92.0000,64856.0000,64948.0000,64710.0000,64956.0000
+spike,vapor,Vapor,error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+spike,vapor,Vapor,rss_peak_bytes,5,50165972.9920,572522.4960,50025463.8080,50597986.3040,49798971.3920,50794070.0160
+spike,vapor,Vapor,rss_steady_bytes,5,47819259.9040,392167.4240,47634710.5280,48026877.9520,47369420.8000,48375005.1840
+spike,vapor,Vapor,cpu_mean_percent_of_one_core,5,71.5341,0.3884,71.4676,71.8559,69.8250,72.7351
+spike,vapor,Vapor,probe_p50_ms,5,3.0040,0.0430,2.9940,3.0370,2.9610,3.0655
+spike,vapor,Vapor,probe_p95_ms,5,6.7503,0.6010,6.1785,6.7795,6.0175,7.2624
+spike,vapor,Vapor,probe_p99_ms,5,12.3096,1.2972,11.6717,12.9689,11.6221,13.8679
+spike,vapor,Vapor,k6_cpu_mean_percent_of_one_core,5,12.9714,0.1796,12.8330,13.0126,12.4610,13.0248
+spike,vapor,Vapor,k6_cpu_peak_percent_of_one_core,5,26.5779,0.5844,26.4627,27.0471,26.0850,27.4592
+spike,vapor,Vapor,k6_rss_peak_bytes,5,128401408.0000,1163264.0000,128352256.0000,129515520.0000,128040960.0000,129662976.0000
+spike,vapor,Vapor,server_throughput_peak_rps,5,986.2000,5.4000,982.8000,988.2000,982.8000,993.8000
+spike,vapor,Vapor,ep_get_users_p95_ms,5,18.8165,2.6471,16.5751,19.2223,16.5287,19.3778
+spike,vapor,Vapor,ep_get_products_p95_ms,5,11.4540,1.0105,11.0270,12.0375,10.7334,12.1900
+spike,boot-t200,"Spring Boot, Tomcat 200",client_p50_ms,5,3.2970,0.3320,3.1660,3.4980,3.0980,3.5330
+spike,boot-t200,"Spring Boot, Tomcat 200",client_p95_ms,5,15.3090,1.4803,14.9689,16.4492,14.3798,17.9927
+spike,boot-t200,"Spring Boot, Tomcat 200",client_p99_ms,5,23.1236,1.9629,22.5474,24.5103,21.6538,56.3681
+spike,boot-t200,"Spring Boot, Tomcat 200",client_max_ms,5,338.8730,766.0230,71.8730,837.8960,40.5850,971.4090
+spike,boot-t200,"Spring Boot, Tomcat 200",server_p50_ms,5,1.0776,0.0214,1.0651,1.0866,0.9948,1.1020
+spike,boot-t200,"Spring Boot, Tomcat 200",server_p95_ms,5,4.3385,0.4349,4.0650,4.4999,4.0444,4.5299
+spike,boot-t200,"Spring Boot, Tomcat 200",server_p99_ms,5,8.8670,0.9380,8.3658,9.3039,8.1632,10.0557
+spike,boot-t200,"Spring Boot, Tomcat 200",server_mean_ms,5,1.8064,0.6008,1.5660,2.1669,1.5508,2.4939
+spike,boot-t200,"Spring Boot, Tomcat 200",throughput_rps,5,432.7089,1.7811,431.0780,432.8591,428.9657,432.9895
+spike,boot-t200,"Spring Boot, Tomcat 200",requests_total,5,65096.0000,282.0000,64842.0000,65124.0000,64666.0000,65162.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",rss_peak_bytes,5,1119145164.8000,56937676.8000,1067660083.2000,1124597760.0000,1060634624.0000,1152280166.4000
+spike,boot-t200,"Spring Boot, Tomcat 200",rss_steady_bytes,5,1105408819.2000,51589939.2000,1056964608.0000,1108554547.2000,1047107993.6000,1112172134.4000
+spike,boot-t200,"Spring Boot, Tomcat 200",cpu_mean_percent_of_one_core,5,48.5508,1.3665,48.0343,49.4008,46.5566,51.2892
+spike,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_used_steady_bytes,5,72530368.0000,11425416.0000,66992608.0000,78418024.0000,64622776.0000,78618232.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_used_peak_bytes,5,121047528.0000,18914744.0000,107515968.0000,126430712.0000,97862312.0000,130176504.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_committed_steady_bytes,5,103809024.0000,10485760.0000,103809024.0000,114294784.0000,95420416.0000,128974848.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_committed_peak_bytes,5,132120576.0000,19922944.0000,117440512.0000,137363456.0000,109051904.0000,149946368.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",gc_pause_count,5,129.0000,29.0000,122.0000,151.0000,101.0000,158.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",gc_pause_total_seconds,5,0.7450,0.0400,0.7100,0.7500,0.6520,0.7500
+spike,boot-t200,"Spring Boot, Tomcat 200",tomcat_busy_threads_median,5,1.0000,0.0000,1.0000,1.0000,1.0000,1.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",tomcat_busy_threads_peak,5,4.0000,2.0000,3.0000,5.0000,2.0000,6.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",tomcat_threads_max_config,5,200.0000,0.0000,200.0000,200.0000,200.0000,200.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",db_pool_pending_peak,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",db_pool_active_peak,5,1.0000,1.0000,0.0000,1.0000,0.0000,1.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",db_wait_mean_ms,5,4.8119,16.5699,1.1674,17.7373,0.1810,47.6275
+spike,boot-t200,"Spring Boot, Tomcat 200",probe_p50_ms,5,5.7065,0.1035,5.6900,5.7935,5.6750,5.8930
+spike,boot-t200,"Spring Boot, Tomcat 200",probe_p95_ms,5,10.3972,0.2615,10.3395,10.6010,10.2945,10.9650
+spike,boot-t200,"Spring Boot, Tomcat 200",probe_p99_ms,5,15.2020,3.1480,14.9480,18.0960,12.7550,19.6213
+spike,boot-t200,"Spring Boot, Tomcat 200",k6_cpu_mean_percent_of_one_core,5,13.5323,0.2175,13.3502,13.5676,13.1265,13.6447
+spike,boot-t200,"Spring Boot, Tomcat 200",k6_cpu_peak_percent_of_one_core,5,28.6301,0.2774,28.6040,28.8814,28.4589,29.5525
+spike,boot-t200,"Spring Boot, Tomcat 200",k6_rss_peak_bytes,5,128696320.0000,933888.0000,128663552.0000,129597440.0000,127647744.0000,133529600.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",server_throughput_peak_rps,5,1005.6000,1.8000,1004.8000,1006.6000,993.4000,1007.0000
+spike,boot-t200,"Spring Boot, Tomcat 200",ep_get_users_p95_ms,5,18.0936,1.9602,17.5520,19.5122,17.1490,22.3050
+spike,boot-t200,"Spring Boot, Tomcat 200",ep_get_products_p95_ms,5,11.8533,0.8768,11.1020,11.9788,10.3600,12.3582
+spike,boot-t64,"Spring Boot, Tomcat 64",client_p50_ms,5,3.3260,0.2380,3.2920,3.5300,3.1100,3.5950
+spike,boot-t64,"Spring Boot, Tomcat 64",client_p95_ms,5,14.8350,1.4136,14.4804,15.8940,14.4240,16.3960
+spike,boot-t64,"Spring Boot, Tomcat 64",client_p99_ms,5,24.4047,3.1075,22.6015,25.7090,22.4305,26.9837
+spike,boot-t64,"Spring Boot, Tomcat 64",client_max_ms,5,634.2200,354.4810,501.1120,855.5930,202.2480,885.5470
+spike,boot-t64,"Spring Boot, Tomcat 64",server_p50_ms,5,1.0333,0.0434,1.0273,1.0707,0.9803,1.0797
+spike,boot-t64,"Spring Boot, Tomcat 64",server_p95_ms,5,3.8135,0.0925,3.7734,3.8659,3.6965,4.0511
+spike,boot-t64,"Spring Boot, Tomcat 64",server_p99_ms,5,8.3833,1.0156,7.9067,8.9224,7.6195,9.0570
+spike,boot-t64,"Spring Boot, Tomcat 64",server_mean_ms,5,1.9829,0.2315,1.7973,2.0289,1.5618,2.1408
+spike,boot-t64,"Spring Boot, Tomcat 64",throughput_rps,5,431.3654,1.2623,431.1066,432.3689,430.9278,433.0137
+spike,boot-t64,"Spring Boot, Tomcat 64",requests_total,5,64992.0000,116.0000,64902.0000,65018.0000,64880.0000,65162.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",rss_peak_bytes,5,1091462758.4000,46556774.4000,1078040985.6000,1124597760.0000,1060949196.8000,1192964915.2000
+spike,boot-t64,"Spring Boot, Tomcat 64",rss_steady_bytes,5,1084647014.4000,25690112.0000,1068918374.4000,1094608486.4000,1046793420.8000,1177078988.8000
+spike,boot-t64,"Spring Boot, Tomcat 64",cpu_mean_percent_of_one_core,5,46.9605,0.7758,46.4637,47.2395,44.6716,51.0218
+spike,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_used_steady_bytes,5,71270728.0000,5771248.0000,65698072.0000,71469320.0000,63397592.0000,78461920.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_used_peak_bytes,5,120701168.0000,13452392.0000,108120984.0000,121573376.0000,105180256.0000,132387496.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_committed_steady_bytes,5,103809024.0000,20971520.0000,97517568.0000,118489088.0000,92274688.0000,143654912.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_committed_peak_bytes,5,136314880.0000,13631488.0000,133169152.0000,146800640.0000,118489088.0000,176160768.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",gc_pause_count,5,95.0000,22.0000,94.0000,116.0000,88.0000,118.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",gc_pause_total_seconds,5,0.5790,0.2100,0.5240,0.7340,0.4640,0.7600
+spike,boot-t64,"Spring Boot, Tomcat 64",tomcat_busy_threads_median,5,1.0000,0.0000,1.0000,1.0000,1.0000,1.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",tomcat_busy_threads_peak,5,12.0000,4.0000,8.0000,12.0000,5.0000,18.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",tomcat_threads_max_config,5,64.0000,0.0000,64.0000,64.0000,64.0000,64.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",db_pool_pending_peak,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",db_pool_active_peak,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",db_wait_mean_ms,5,23.4389,7.8347,16.8222,24.6569,4.2239,31.4421
+spike,boot-t64,"Spring Boot, Tomcat 64",probe_p50_ms,5,5.8825,0.1285,5.7800,5.9085,5.7240,5.9930
+spike,boot-t64,"Spring Boot, Tomcat 64",probe_p95_ms,5,10.4082,0.4027,10.2550,10.6578,10.1778,10.9340
+spike,boot-t64,"Spring Boot, Tomcat 64",probe_p99_ms,5,14.2553,2.8112,13.8848,16.6961,12.9700,17.3590
+spike,boot-t64,"Spring Boot, Tomcat 64",k6_cpu_mean_percent_of_one_core,5,13.3083,0.3098,13.3057,13.6155,12.4223,13.8385
+spike,boot-t64,"Spring Boot, Tomcat 64",k6_cpu_peak_percent_of_one_core,5,28.4904,0.1662,28.3716,28.5378,27.9106,29.1853
+spike,boot-t64,"Spring Boot, Tomcat 64",k6_rss_peak_bytes,5,129843200.0000,1835008.0000,129122304.0000,130957312.0000,127844352.0000,131973120.0000
+spike,boot-t64,"Spring Boot, Tomcat 64",server_throughput_peak_rps,5,1001.6000,1.2000,1001.4000,1002.6000,999.6000,1005.2000
+spike,boot-t64,"Spring Boot, Tomcat 64",ep_get_users_p95_ms,5,17.2010,1.3530,17.1720,18.5250,16.5380,19.6872
+spike,boot-t64,"Spring Boot, Tomcat 64",ep_get_products_p95_ms,5,11.3530,0.7395,11.1755,11.9150,10.6892,12.2578
+spike,boot-vt,"Spring Boot, virtual threads",client_p50_ms,5,2.5610,0.2420,2.5120,2.7540,2.2860,2.9565
+spike,boot-vt,"Spring Boot, virtual threads",client_p95_ms,5,13.8004,0.4280,13.7929,14.2209,11.3844,14.6500
+spike,boot-vt,"Spring Boot, virtual threads",client_p99_ms,5,21.4072,4.0855,21.1692,25.2547,18.5209,28.2605
+spike,boot-vt,"Spring Boot, virtual threads",client_max_ms,5,89.9480,178.4660,47.2740,225.7400,37.0210,514.4250
+spike,boot-vt,"Spring Boot, virtual threads",server_p50_ms,5,1.1020,0.1004,1.0499,1.1503,0.9629,1.2102
+spike,boot-vt,"Spring Boot, virtual threads",server_p95_ms,5,6.6048,0.1775,6.5042,6.6817,5.2730,7.0277
+spike,boot-vt,"Spring Boot, virtual threads",server_p99_ms,5,12.7880,1.9666,11.9553,13.9219,10.5590,14.6640
+spike,boot-vt,"Spring Boot, virtual threads",server_mean_ms,5,2.0710,0.1217,2.0366,2.1583,1.6590,2.5388
+spike,boot-vt,"Spring Boot, virtual threads",throughput_rps,5,433.8365,0.3885,433.8248,434.2133,432.5333,436.3302
+spike,boot-vt,"Spring Boot, virtual threads",requests_total,5,65350.0000,104.0000,65298.0000,65402.0000,65128.0000,65638.0000
+spike,boot-vt,"Spring Boot, virtual threads",error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+spike,boot-vt,"Spring Boot, virtual threads",rss_peak_bytes,5,1109603123.2000,6501171.2000,1107191398.4000,1113692569.6000,1099641651.2000,1119879168.0000
+spike,boot-vt,"Spring Boot, virtual threads",rss_steady_bytes,5,1095027916.8000,4928307.2000,1090623897.6000,1095552204.8000,1082812006.4000,1113168281.6000
+spike,boot-vt,"Spring Boot, virtual threads",cpu_mean_percent_of_one_core,5,43.7889,1.4649,43.3611,44.8259,40.4186,45.8578
+spike,boot-vt,"Spring Boot, virtual threads",jvm_heap_used_steady_bytes,5,77271920.0000,6885392.0000,70435976.0000,77321368.0000,68717512.0000,77517320.0000
+spike,boot-vt,"Spring Boot, virtual threads",jvm_heap_used_peak_bytes,5,128934536.0000,12051256.0000,125975952.0000,138027208.0000,110781304.0000,140224120.0000
+spike,boot-vt,"Spring Boot, virtual threads",jvm_heap_committed_steady_bytes,5,122683392.0000,10485760.0000,120586240.0000,131072000.0000,117440512.0000,141557760.0000
+spike,boot-vt,"Spring Boot, virtual threads",jvm_heap_committed_peak_bytes,5,143654912.0000,13631488.0000,136314880.0000,149946368.0000,131072000.0000,149946368.0000
+spike,boot-vt,"Spring Boot, virtual threads",gc_pause_count,5,125.0000,24.0000,107.0000,131.0000,105.0000,140.0000
+spike,boot-vt,"Spring Boot, virtual threads",gc_pause_total_seconds,5,0.5700,0.0670,0.5320,0.5990,0.4870,0.6190
+spike,boot-vt,"Spring Boot, virtual threads",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+spike,boot-vt,"Spring Boot, virtual threads",db_pool_pending_peak,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+spike,boot-vt,"Spring Boot, virtual threads",db_pool_active_peak,5,1.0000,1.0000,0.0000,1.0000,0.0000,1.0000
+spike,boot-vt,"Spring Boot, virtual threads",db_wait_mean_ms,5,0.7275,10.3449,0.5392,10.8841,0.4815,22.0004
+spike,boot-vt,"Spring Boot, virtual threads",probe_p50_ms,5,5.8725,0.0360,5.8530,5.8890,5.5920,5.9745
+spike,boot-vt,"Spring Boot, virtual threads",probe_p95_ms,5,10.7745,0.1372,10.7438,10.8810,10.3808,12.3208
+spike,boot-vt,"Spring Boot, virtual threads",probe_p99_ms,5,14.9872,3.4902,14.0160,17.5062,13.8942,21.7840
+spike,boot-vt,"Spring Boot, virtual threads",k6_cpu_mean_percent_of_one_core,5,13.6234,0.2988,13.4343,13.7331,13.3738,13.8476
+spike,boot-vt,"Spring Boot, virtual threads",k6_cpu_peak_percent_of_one_core,5,28.9263,0.7956,28.2349,29.0305,26.8745,29.4960
+spike,boot-vt,"Spring Boot, virtual threads",k6_rss_peak_bytes,5,127942656.0000,2195456.0000,126566400.0000,128761856.0000,123043840.0000,129138688.0000
+spike,boot-vt,"Spring Boot, virtual threads",server_throughput_peak_rps,5,1006.6000,0.4000,1006.2000,1006.6000,1002.8000,1007.2000
+spike,boot-vt,"Spring Boot, virtual threads",ep_get_users_p95_ms,5,16.7395,0.1925,16.7064,16.8988,13.5171,17.7120
+spike,boot-vt,"Spring Boot, virtual threads",ep_get_products_p95_ms,5,8.8754,0.8942,7.9880,8.8822,7.0111,10.5106
+soak,vapor,Vapor,client_p50_ms,5,3.4570,0.4980,3.1980,3.6960,2.9350,3.7590
+soak,vapor,Vapor,client_p95_ms,5,98.3917,11.3481,93.3572,104.7053,89.7750,124.6328
+soak,vapor,Vapor,client_p99_ms,5,223.5204,45.0550,191.6240,236.6789,183.0890,267.8659
+soak,vapor,Vapor,client_max_ms,5,364.0500,36.0710,357.6700,393.7410,303.9890,469.4660
+soak,vapor,Vapor,server_p50_ms,5,1.9601,0.2505,1.8381,2.0886,1.7048,2.1932
+soak,vapor,Vapor,server_p95_ms,5,98.6117,7.7703,95.2717,103.0421,88.9300,124.5109
+soak,vapor,Vapor,server_p99_ms,5,210.4236,44.2186,193.8780,238.0967,183.0129,258.6712
+soak,vapor,Vapor,server_mean_ms,5,21.7076,1.4353,20.4144,21.8497,18.7258,22.5954
+soak,vapor,Vapor,throughput_rps,5,25.6934,0.0138,25.6877,25.7016,25.6022,25.7511
+soak,vapor,Vapor,requests_total,5,6180.0000,12.0000,6175.0000,6187.0000,6173.0000,6201.0000
+soak,vapor,Vapor,error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+soak,vapor,Vapor,rss_peak_bytes,5,39631978.4960,299892.7360,39527120.8960,39827013.6320,39442186.2400,54906585.0880
+soak,vapor,Vapor,rss_steady_bytes,5,37396414.4640,116391.9360,37388025.8560,37504417.7920,37262196.7360,37621858.3040
+soak,vapor,Vapor,cpu_mean_percent_of_one_core,5,35.8222,1.6295,35.7476,37.3771,35.7354,37.5125
+soak,vapor,Vapor,probe_p50_ms,5,2.9465,0.0280,2.9460,2.9740,2.8655,3.0210
+soak,vapor,Vapor,probe_p95_ms,5,5.7264,0.0420,5.7174,5.7594,5.6281,5.7985
+soak,vapor,Vapor,probe_p99_ms,5,29.4730,8.8628,25.3410,34.2038,12.9034,36.9173
+soak,vapor,Vapor,k6_cpu_mean_percent_of_one_core,5,1.7836,0.0503,1.7499,1.8002,1.7396,1.8156
+soak,vapor,Vapor,k6_cpu_peak_percent_of_one_core,5,2.4379,0.0309,2.4369,2.4678,2.4150,2.6576
+soak,vapor,Vapor,k6_rss_peak_bytes,5,53575680.0000,901120.0000,53018624.0000,53919744.0000,52903936.0000,55672832.0000
+soak,vapor,Vapor,server_throughput_peak_rps,5,30.0000,0.0000,30.0000,30.0000,30.0000,30.0000
+soak,vapor,Vapor,ep_get_products_p95_ms,5,5.2827,0.2165,5.2624,5.4789,5.2237,5.6829
+soak,vapor,Vapor,ep_post_users_p95_ms,5,220.9322,42.7291,191.2860,234.0151,183.0842,267.5503
+soak,boot-t200,"Spring Boot, Tomcat 200",client_p50_ms,5,2.1230,0.6440,1.7410,2.3850,1.3320,2.9170
+soak,boot-t200,"Spring Boot, Tomcat 200",client_p95_ms,5,122.5902,39.9776,120.3654,160.3430,110.0885,177.6000
+soak,boot-t200,"Spring Boot, Tomcat 200",client_p99_ms,5,196.8765,102.4226,192.0819,294.5046,179.8838,306.6529
+soak,boot-t200,"Spring Boot, Tomcat 200",client_max_ms,5,482.3960,338.2060,408.0000,746.2060,303.8700,1180.8760
+soak,boot-t200,"Spring Boot, Tomcat 200",server_p50_ms,5,1.1588,0.3215,0.9657,1.2872,0.8094,1.5978
+soak,boot-t200,"Spring Boot, Tomcat 200",server_p95_ms,5,122.7697,34.8582,120.6529,155.5111,111.7958,174.3694
+soak,boot-t200,"Spring Boot, Tomcat 200",server_p99_ms,5,194.5564,147.2834,189.5167,336.8002,177.6595,339.2577
+soak,boot-t200,"Spring Boot, Tomcat 200",server_mean_ms,5,22.7056,5.8254,22.3000,28.1254,21.3247,28.6385
+soak,boot-t200,"Spring Boot, Tomcat 200",throughput_rps,5,25.5778,0.1555,25.4722,25.6277,25.4529,25.6614
+soak,boot-t200,"Spring Boot, Tomcat 200",requests_total,5,6173.0000,39.0000,6141.0000,6180.0000,6135.0000,6180.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",rss_peak_bytes,5,1096600780.8000,14050918.4000,1089260748.8000,1103311667.2000,1047107993.6000,1104569958.4000
+soak,boot-t200,"Spring Boot, Tomcat 200",rss_steady_bytes,5,1080138137.6000,13631488.0000,1068498944.0000,1082130432.0000,1026975334.4000,1087583027.2000
+soak,boot-t200,"Spring Boot, Tomcat 200",cpu_mean_percent_of_one_core,5,47.9978,0.8853,47.5837,48.4690,47.5183,49.4747
+soak,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_used_steady_bytes,5,68429936.0000,4747160.0000,65462560.0000,70209720.0000,62369208.0000,70310776.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_used_peak_bytes,5,115298488.0000,3991448.0000,112988272.0000,116979720.0000,103905160.0000,125443368.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_committed_steady_bytes,5,112197632.0000,25165824.0000,101711872.0000,126877696.0000,94371840.0000,128974848.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",jvm_heap_committed_peak_bytes,5,130023424.0000,7340032.0000,124780544.0000,132120576.0000,113246208.0000,150994944.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",gc_pause_count,5,43.0000,8.0000,41.0000,49.0000,9.0000,66.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",gc_pause_total_seconds,5,0.2020,0.1320,0.1710,0.3030,0.1120,0.3100
+soak,boot-t200,"Spring Boot, Tomcat 200",tomcat_busy_threads_median,5,1.0000,0.0000,1.0000,1.0000,1.0000,1.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",tomcat_busy_threads_peak,5,7.0000,1.0000,6.0000,7.0000,4.0000,9.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",tomcat_threads_max_config,5,200.0000,0.0000,200.0000,200.0000,200.0000,200.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",db_pool_pending_peak,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",db_pool_active_peak,5,5.0000,1.0000,5.0000,6.0000,3.0000,8.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",db_wait_mean_ms,5,0.3529,0.1090,0.2657,0.3746,0.2551,0.6927
+soak,boot-t200,"Spring Boot, Tomcat 200",probe_p50_ms,5,5.7760,0.2715,5.5740,5.8455,5.4420,5.8675
+soak,boot-t200,"Spring Boot, Tomcat 200",probe_p95_ms,5,10.6730,0.0428,10.6326,10.6753,10.5166,10.7552
+soak,boot-t200,"Spring Boot, Tomcat 200",probe_p99_ms,5,21.0286,4.4908,20.8048,25.2955,20.3301,49.5728
+soak,boot-t200,"Spring Boot, Tomcat 200",k6_cpu_mean_percent_of_one_core,5,1.7853,0.1153,1.7192,1.8345,1.6206,1.8458
+soak,boot-t200,"Spring Boot, Tomcat 200",k6_cpu_peak_percent_of_one_core,5,2.4319,0.0105,2.4226,2.4332,2.1865,2.6064
+soak,boot-t200,"Spring Boot, Tomcat 200",k6_rss_peak_bytes,5,54132736.0000,2441216.0000,53346304.0000,55787520.0000,51511296.0000,58736640.0000
+soak,boot-t200,"Spring Boot, Tomcat 200",server_throughput_peak_rps,5,37.2000,0.2000,37.0000,37.2000,37.0000,37.2000
+soak,boot-t200,"Spring Boot, Tomcat 200",ep_get_products_p95_ms,5,4.5370,0.1999,4.4571,4.6570,4.3882,4.7376
+soak,boot-t200,"Spring Boot, Tomcat 200",ep_post_users_p95_ms,5,196.5922,101.2219,191.7641,292.9860,179.4838,304.6247
+soak,boot-t64,"Spring Boot, Tomcat 64",client_p50_ms,5,1.5635,0.0610,1.5255,1.5865,1.3930,1.9600
+soak,boot-t64,"Spring Boot, Tomcat 64",client_p95_ms,5,115.4700,8.2063,108.4241,116.6303,104.3934,132.9850
+soak,boot-t64,"Spring Boot, Tomcat 64",client_p99_ms,5,181.4569,8.7694,180.8719,189.6413,169.4453,192.3766
+soak,boot-t64,"Spring Boot, Tomcat 64",client_max_ms,5,331.1230,57.1540,297.3480,354.5020,294.2380,469.6220
+soak,boot-t64,"Spring Boot, Tomcat 64",server_p50_ms,5,0.8850,0.0337,0.8785,0.9122,0.8513,1.0490
+soak,boot-t64,"Spring Boot, Tomcat 64",server_p95_ms,5,115.6929,4.2795,111.7629,116.0424,111.6661,130.4495
+soak,boot-t64,"Spring Boot, Tomcat 64",server_p99_ms,5,180.2266,10.8180,179.6220,190.4400,165.6470,194.6346
+soak,boot-t64,"Spring Boot, Tomcat 64",server_mean_ms,5,21.8602,0.9220,21.2539,22.1760,20.2430,23.0796
+soak,boot-t64,"Spring Boot, Tomcat 64",throughput_rps,5,25.6354,0.0332,25.6330,25.6662,25.6120,25.7179
+soak,boot-t64,"Spring Boot, Tomcat 64",requests_total,5,6180.0000,0.0000,6180.0000,6180.0000,6173.0000,6189.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",rss_peak_bytes,5,1091357900.8000,47185920.0000,1059900620.8000,1107086540.8000,1014706995.2000,1110861414.4000
+soak,boot-t64,"Spring Boot, Tomcat 64",rss_steady_bytes,5,1066611507.2000,43987763.2000,1039348531.2000,1083336294.4000,994784051.2000,1086953881.6000
+soak,boot-t64,"Spring Boot, Tomcat 64",cpu_mean_percent_of_one_core,5,47.9749,2.9094,45.2728,48.1822,44.9508,49.7114
+soak,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_used_steady_bytes,5,64221408.0000,5274168.0000,61441800.0000,66715968.0000,60020480.0000,66874424.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_used_peak_bytes,5,122687280.0000,5886760.0000,116837608.0000,122724368.0000,100192856.0000,129974960.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_committed_steady_bytes,5,104857600.0000,12582912.0000,100663296.0000,113246208.0000,95420416.0000,124780544.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",jvm_heap_committed_peak_bytes,5,138412032.0000,23068672.0000,132120576.0000,155189248.0000,110100480.0000,160432128.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",gc_pause_count,5,36.0000,10.0000,34.0000,44.0000,10.0000,51.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",gc_pause_total_seconds,5,0.1800,0.0730,0.1800,0.2530,0.0740,0.3540
+soak,boot-t64,"Spring Boot, Tomcat 64",tomcat_busy_threads_median,5,1.0000,0.0000,1.0000,1.0000,1.0000,1.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",tomcat_busy_threads_peak,5,5.0000,2.0000,5.0000,7.0000,4.0000,7.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",tomcat_threads_max_config,5,64.0000,0.0000,64.0000,64.0000,64.0000,64.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",db_pool_pending_peak,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",db_pool_active_peak,5,5.0000,2.0000,4.0000,6.0000,3.0000,6.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",db_wait_mean_ms,5,0.3497,0.1201,0.2871,0.4072,0.2229,0.4200
+soak,boot-t64,"Spring Boot, Tomcat 64",probe_p50_ms,5,5.7950,0.2075,5.6945,5.9020,5.6660,5.9700
+soak,boot-t64,"Spring Boot, Tomcat 64",probe_p95_ms,5,10.7308,0.1393,10.6982,10.8374,10.5002,10.8994
+soak,boot-t64,"Spring Boot, Tomcat 64",probe_p99_ms,5,26.1420,3.0229,25.1188,28.1417,14.7718,36.3614
+soak,boot-t64,"Spring Boot, Tomcat 64",k6_cpu_mean_percent_of_one_core,5,1.6727,0.0726,1.6280,1.7007,1.6252,1.7538
+soak,boot-t64,"Spring Boot, Tomcat 64",k6_cpu_peak_percent_of_one_core,5,2.4111,0.2306,2.1931,2.4237,2.1846,2.4284
+soak,boot-t64,"Spring Boot, Tomcat 64",k6_rss_peak_bytes,5,52543488.0000,2752512.0000,52297728.0000,55050240.0000,52166656.0000,56131584.0000
+soak,boot-t64,"Spring Boot, Tomcat 64",server_throughput_peak_rps,5,37.2000,0.2000,37.0000,37.2000,37.0000,37.2000
+soak,boot-t64,"Spring Boot, Tomcat 64",ep_get_products_p95_ms,5,4.6123,0.2026,4.4762,4.6788,4.3401,4.7794
+soak,boot-t64,"Spring Boot, Tomcat 64",ep_post_users_p95_ms,5,181.1908,8.7311,180.7472,189.4783,169.2484,192.2274
+soak,boot-vt,"Spring Boot, virtual threads",client_p50_ms,5,3.9150,0.8370,3.4210,4.2580,3.1780,4.6430
+soak,boot-vt,"Spring Boot, virtual threads",client_p95_ms,5,264.6838,193.5765,256.1838,449.7603,253.8718,455.5177
+soak,boot-vt,"Spring Boot, virtual threads",client_p99_ms,5,395.6169,359.2165,338.6163,697.8328,281.6220,741.8477
+soak,boot-vt,"Spring Boot, virtual threads",client_max_ms,5,681.5610,260.6360,549.0000,809.6360,528.4960,1123.0020
+soak,boot-vt,"Spring Boot, virtual threads",server_p50_ms,5,1.9793,0.3773,1.7811,2.1585,1.6383,2.2892
+soak,boot-vt,"Spring Boot, virtual threads",server_p95_ms,5,268.2638,137.1685,268.0052,405.1737,267.5737,434.2478
+soak,boot-vt,"Spring Boot, virtual threads",server_p99_ms,5,355.0356,340.3054,342.9001,683.2055,279.1875,712.3722
+soak,boot-vt,"Spring Boot, virtual threads",server_mean_ms,5,41.7973,17.8292,40.4873,58.3165,37.4693,64.4184
+soak,boot-vt,"Spring Boot, virtual threads",throughput_rps,5,25.1348,0.5425,24.6277,25.1702,24.5286,25.2258
+soak,boot-vt,"Spring Boot, virtual threads",requests_total,5,6043.0000,117.0000,5940.0000,6057.0000,5914.0000,6074.0000
+soak,boot-vt,"Spring Boot, virtual threads",error_rate,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+soak,boot-vt,"Spring Boot, virtual threads",rss_peak_bytes,5,1083074150.4000,75602329.6000,1026870476.8000,1102472806.4000,1023515033.6000,1112224563.2000
+soak,boot-vt,"Spring Boot, virtual threads",rss_steady_bytes,5,1061473484.8000,57986252.8000,1009149542.4000,1067135795.2000,999083212.8000,1078145843.2000
+soak,boot-vt,"Spring Boot, virtual threads",cpu_mean_percent_of_one_core,5,45.0439,1.8408,44.6310,46.4719,41.6197,47.1731
+soak,boot-vt,"Spring Boot, virtual threads",jvm_heap_used_steady_bytes,5,64980152.0000,3183584.0000,62980600.0000,66164184.0000,61526064.0000,67306904.0000
+soak,boot-vt,"Spring Boot, virtual threads",jvm_heap_used_peak_bytes,5,102019976.0000,18241856.0000,98719040.0000,116960896.0000,96729176.0000,117048776.0000
+soak,boot-vt,"Spring Boot, virtual threads",jvm_heap_committed_steady_bytes,5,106954752.0000,14680064.0000,95420416.0000,110100480.0000,93323264.0000,118489088.0000
+soak,boot-vt,"Spring Boot, virtual threads",jvm_heap_committed_peak_bytes,5,125829120.0000,27262976.0000,108003328.0000,135266304.0000,105906176.0000,137363456.0000
+soak,boot-vt,"Spring Boot, virtual threads",gc_pause_count,5,16.0000,25.0000,15.0000,40.0000,14.0000,40.0000
+soak,boot-vt,"Spring Boot, virtual threads",gc_pause_total_seconds,5,0.1200,0.0560,0.1170,0.1730,0.1020,0.2570
+soak,boot-vt,"Spring Boot, virtual threads",db_pool_pending_median,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+soak,boot-vt,"Spring Boot, virtual threads",db_pool_pending_peak,5,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000
+soak,boot-vt,"Spring Boot, virtual threads",db_pool_active_peak,5,7.0000,6.0000,7.0000,13.0000,7.0000,20.0000
+soak,boot-vt,"Spring Boot, virtual threads",db_wait_mean_ms,5,9.3837,1.7157,9.0366,10.7523,7.7847,10.7614
+soak,boot-vt,"Spring Boot, virtual threads",probe_p50_ms,5,6.4845,0.1485,6.4535,6.6020,6.0515,6.6260
+soak,boot-vt,"Spring Boot, virtual threads",probe_p95_ms,5,19.2282,14.9616,14.8994,29.8610,13.7308,86.8339
+soak,boot-vt,"Spring Boot, virtual threads",probe_p99_ms,5,224.1792,9.3522,222.0066,231.3588,209.5128,310.5986
+soak,boot-vt,"Spring Boot, virtual threads",k6_cpu_mean_percent_of_one_core,5,1.6745,0.0857,1.6497,1.7354,1.5906,1.7793
+soak,boot-vt,"Spring Boot, virtual threads",k6_cpu_peak_percent_of_one_core,5,2.1984,0.2207,2.1842,2.4049,2.1825,2.4268
+soak,boot-vt,"Spring Boot, virtual threads",k6_rss_peak_bytes,5,53248000.0000,1425408.0000,52674560.0000,54099968.0000,51331072.0000,54132736.0000
+soak,boot-vt,"Spring Boot, virtual threads",server_throughput_peak_rps,5,37.0000,0.4000,36.8000,37.2000,36.8000,37.2000
+soak,boot-vt,"Spring Boot, virtual threads",ep_get_products_p95_ms,5,6.1844,1.9073,6.1580,8.0653,6.0911,8.3575
+soak,boot-vt,"Spring Boot, virtual threads",ep_post_users_p95_ms,5,395.5315,359.2186,338.4934,697.7120,281.5802,741.8365

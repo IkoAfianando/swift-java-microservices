@@ -1,0 +1,88 @@
+# ============================================================
+# Revision 3 parity overlay
+# ------------------------------------------------------------
+# Answers the reviewers' objection that the original study claimed
+# "apples-to-apples" parity while leaving computational and concurrency
+# parity unconstrained. Every container now carries an explicit CPU quota
+# and memory limit, and the request-execution concurrency ceiling is made
+# comparable across the two stacks.
+#
+# Budget on the test host (Apple M4, 10 cores, Docker Desktop 10 vCPU / 8 GB):
+#   3 application containers x 1.5 CPU  = 4.5
+#   postgres                            = 1.5
+#   redis                               = 0.5
+#   ------------------------------------------
+#   total while one stack is under test = 6.5 vCPU / 4.5 GB
+# Only one stack runs at a time, so the two stacks never compete for CPU.
+#
+# Concurrency ceiling:
+#   JVM  -XX:+UseContainerSupport reads the cgroup quota, so with cpus=1.5
+#        Runtime.availableProcessors() == 2.
+#   NIO  System.coreCount reads the host core count and ignores the cgroup
+#        quota, so Vapor would otherwise open 10 event loops against a
+#        1.5-core budget. NIO_SINGLETON_GROUP_LOOP_COUNT pins it to 2.
+#   DB   Hikari sizes the pool per process (20). Vapor sizes it per event
+#        loop, so DB_POOL_PER_LOOP=10 x 2 loops = 20.
+#   Threads  Tomcat threads.max is the executing-request ceiling. The Vapor
+#        counterpart is the NIO blocking pool, pinned to the same number.
+# ============================================================
+
+x-app-limits: &app-limits
+  cpus: "1.5"
+  mem_limit: 1g
+  mem_reservation: 256m
+  memswap_limit: 1g
+
+x-swift-parity: &swift-parity
+  NIO_SINGLETON_GROUP_LOOP_COUNT: "${EVENT_LOOPS:-2}"
+  NIO_SINGLETON_BLOCKING_POOL_THREAD_COUNT: "${BLOCKING_THREADS:-64}"
+  DB_POOL_PER_LOOP: "${DB_POOL_PER_LOOP:-10}"
+
+x-java-parity: &java-parity
+  SERVER_TOMCAT_THREADS_MAX: "${TOMCAT_THREADS_MAX:-200}"
+  SERVER_TOMCAT_THREADS_MINSPARE: "${TOMCAT_THREADS_MIN_SPARE:-10}"
+  SERVER_TOMCAT_ACCEPTCOUNT: "${TOMCAT_ACCEPT_COUNT:-100}"
+  SERVER_TOMCAT_MBEANREGISTRY_ENABLED: "true"
+  SPRING_THREADS_VIRTUAL_ENABLED: "${VIRTUAL_THREADS:-false}"
+  MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: "health,prometheus,metrics,info"
+  # The percentile histogram is switched on in each service's application.yml.
+  # Do not set it here: Spring's relaxed binding reads the environment form
+  # MANAGEMENT_METRICS_DISTRIBUTION_PERCENTILES_HISTOGRAM_... as the property
+  # management.metrics.distribution.percentiles, which is a double array, and
+  # the application refuses to start.
+
+services:
+
+  postgres:
+    cpus: "1.5"
+    mem_limit: 1g
+    mem_reservation: 256m
+
+  redis:
+    cpus: "0.5"
+    mem_limit: 512m
+    mem_reservation: 128m
+
+  swift-user-service:
+    <<: *app-limits
+    environment: *swift-parity
+
+  swift-product-service:
+    <<: *app-limits
+    environment: *swift-parity
+
+  swift-order-service:
+    <<: *app-limits
+    environment: *swift-parity
+
+  java-user-service:
+    <<: *app-limits
+    environment: *java-parity
+
+  java-product-service:
+    <<: *app-limits
+    environment: *java-parity
+
+  java-order-service:
+    <<: *app-limits
+    environment: *java-parity

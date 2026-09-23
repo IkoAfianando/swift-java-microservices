@@ -1,0 +1,24 @@
+{
+  "run_id": "boot-t200_spike_rep3",
+  "config": "boot-t200",
+  "config_label": "Spring Boot, Tomcat platform threads, max 200 (framework default)",
+  "target": "java",
+  "scenario": "spike",
+  "repetition": 3,
+  "config_env": {
+    "TOMCAT_THREADS_MAX": "200",
+    "VIRTUAL_THREADS": "false"
+  },
+  "k6_env": {
+    "TARGET": "java",
+    "SCENARIO": "spike",
+    "SUMMARY_PATH": "/Users/ikoafian/LEARN/RISET/swift-microservices/benchmarking/rev3/results/boot-t200_spike_rep3_k6summary.json.tmp",
+    "USER_URL": "http://localhost:9081",
+    "PRODUCT_URL": "http://localhost:9082",
+    "ORDER_URL": "http://localhost:9083"
+  },
+  "k6_returncode": 0,
+  "k6_wall_seconds": 150.8179121017456,
+  "finished_unix": 1790106687.965892,
+  "finished_iso": "2026-09-23T02:51:27"
+}

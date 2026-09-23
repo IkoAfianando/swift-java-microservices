@@ -5,6 +5,7 @@ import com.research.binus.productservice.repository.ProductRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.*;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +30,9 @@ public class ProductController {
     @GetMapping("/products")
     @Cacheable("products-list")
     public List<Product> list() {
-        return productRepository.findAll();
+        // Vapor sorts the catalogue by name; without this the two services
+        // return the same rows in a different order.
+        return productRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
     }
 
     @PostMapping("/products")

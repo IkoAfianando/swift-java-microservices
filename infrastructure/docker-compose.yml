@@ -4,9 +4,9 @@
 
 networks:
   microservices-net:
-    external: true   # pre-created by setup.sh — shared with monitoring stack
+    external: true   # pre-created by setup.sh, shared with monitoring stack
   monitoring-net:
-    external: true   # pre-created by setup.sh — shared with monitoring stack
+    external: true   # pre-created by setup.sh, shared with monitoring stack
 
 volumes:
   postgres-data:

@@ -1,0 +1,24 @@
+{
+  "run_id": "boot-vt_spike_rep5",
+  "config": "boot-vt",
+  "config_label": "Spring Boot, virtual threads (Java 21, spring.threads.virtual.enabled)",
+  "target": "java",
+  "scenario": "spike",
+  "repetition": 5,
+  "config_env": {
+    "TOMCAT_THREADS_MAX": "200",
+    "VIRTUAL_THREADS": "true"
+  },
+  "k6_env": {
+    "TARGET": "java",
+    "SCENARIO": "spike",
+    "SUMMARY_PATH": "/Users/ikoafian/LEARN/RISET/swift-microservices/benchmarking/rev3/results/boot-vt_spike_rep5_k6summary.json.tmp",
+    "USER_URL": "http://localhost:9081",
+    "PRODUCT_URL": "http://localhost:9082",
+    "ORDER_URL": "http://localhost:9083"
+  },
+  "k6_returncode": 0,
+  "k6_wall_seconds": 150.88646292686462,
+  "finished_unix": 1790114396.820215,
+  "finished_iso": "2026-09-23T04:59:56"
+}
